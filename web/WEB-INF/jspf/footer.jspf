@@ -1,5 +1,11 @@
 <div>
     <h1>Footer Test</h1>
 </div>
+
+
+<script type="text/javascript">
+    <%@include file="../resources/bootstrap-min/js/jquery.js" %>
+    <%@include file="../resources/bootstrap-min/js/jquery.js" %>
+</script>
 </body>
 </html>
