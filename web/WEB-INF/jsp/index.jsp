@@ -1,3 +1,7 @@
 <div>
-    <h1>Body Test</h1>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>This is Jumbotron</h1>
+        </div>
+    </div>
 </div>

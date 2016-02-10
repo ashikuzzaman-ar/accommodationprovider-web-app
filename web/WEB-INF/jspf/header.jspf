@@ -10,6 +10,7 @@
             <%@include file="../resources/bootstrap-min/css/bootstrap-theme.min.css" %>
             <%@include file="../resources/bootstrap-min/css/bootstrap.min.css" %>
         </style>
+        <!--<link rel="icon" href="../resources/Network-Web-icon.png" />-->
         <title>Welcome to UIU </title>
     </head>
 
