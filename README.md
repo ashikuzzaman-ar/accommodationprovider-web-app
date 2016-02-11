@@ -2,7 +2,7 @@
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
-//Sajid.... Can you see this ?
+# What To DO #
 
 1.Must add different view for the admin/admins
 2.Change password option
