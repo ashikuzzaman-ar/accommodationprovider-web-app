@@ -9,6 +9,7 @@
         <style type="text/css">
             <%@include file="../resources/bootstrap-min/css/bootstrap-theme.min.css" %>
             <%@include file="../resources/bootstrap-min/css/bootstrap.min.css" %>
+            <%@include file="../resources/CSS/errortemplate.css" %>
         </style>
         <title>Welcome to Spring Web MVC project</title>
     </head>
@@ -18,6 +19,6 @@
             <ul class="nav nav-pills">
                 <li role="presentation" class="active"><a href="#">Home</a></li>
                 <li role="presentation"><a href="#">Profile</a></li>
-                <li role="presentation"><a href="#">Messages</a></li>
+                <li role="presentation"><a href="seeMessages">Messages</a></li>
             </ul>
         </div>

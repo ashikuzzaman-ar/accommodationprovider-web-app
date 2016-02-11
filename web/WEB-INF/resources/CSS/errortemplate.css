@@ -1,0 +1,17 @@
+.error{
+    color:red;
+    font-style : italic;
+    font-size : small;
+    visibility: hidden;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form{
+    font-size: medium;
+}
