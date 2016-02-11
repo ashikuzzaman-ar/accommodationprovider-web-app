@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <div>
 
 
@@ -71,6 +72,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
     function validate() {
@@ -161,4 +163,4 @@
         }
 
     }
-</script>
+
