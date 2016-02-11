@@ -12,3 +12,4 @@ This README would normally document whatever steps are necessary to get your app
 6.Abnormal user activity(posting adds constantly) has to be stopped
 7.check duplication in case of add submission
 8.admin will be able to remove user if needed
+9.header in every page must highlight the current page
