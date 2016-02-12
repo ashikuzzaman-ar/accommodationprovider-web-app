@@ -16,7 +16,7 @@ public class GetBeans {
             return bean;
         } catch (Exception e) {
             
-            return e.toString();
+            return null;
         }
     } 
 }

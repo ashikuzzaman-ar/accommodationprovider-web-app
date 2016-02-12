@@ -16,7 +16,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -32,52 +32,47 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-right" id="bs-nb-1">
                     <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li class="${indexPageVisibility}">
                             <a href="index">Home<span class="sr-only">(current)</span></a>
                         </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+
+
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 Login
                             </a>
                             <div class="dropdown-menu">
-                                <form class="navbar-form navbar-left" action="">
+                                <form class="navbar-form navbar-left" action="index" method="POST">
                                     <div class="form-group form-group-lg">
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <input type="text" class="form-control" placeholder="Username">
+                                                    <input name="username" type="text" class="form-control" placeholder="Username" value="" />
                                                 </td>
                                                 <td>
-                                                    <input type="password" class="form-control" placeholder="Password">
+                                                    <input name="password" type="password" class="form-control" placeholder="Password" value="" />
                                                 </td>
                                             </tr>
                                         </table>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Login</button>
+                                    <input type="submit" class="btn btn-primary" value="Login" name="button" />
                                 </form>
                             </div>
                         </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <li class="dropdown">
+
+                        <li class="dropdown ${signupPageVisibility}">
                             <a href="signup">Sign Up</a>
                         </li>
-                        
-                        
-                        
-                        
+
+
+
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 Dash Board<span class="caret"></span>

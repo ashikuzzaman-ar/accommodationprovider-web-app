@@ -15,7 +15,7 @@
             <value>com.mysql.jdbc.Driver</value>
         </property>
         <property name="databaseURL">
-            <value>jdbc:mysql://localhost/AI_Lab</value>
+            <value>jdbc:mysql://localhost/accommodation_provider</value>
         </property>
         <property name="username">
             <value>root</value>
@@ -23,6 +23,9 @@
         <property name="password">
             <value>studevs</value>
         </property>
+    </bean>
+    
+    <bean id="userInformation" class="com.models.UserInformation" scope="singleton">
     </bean>
 
 </beans>
