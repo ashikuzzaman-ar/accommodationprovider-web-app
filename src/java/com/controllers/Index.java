@@ -49,6 +49,23 @@ public class Index {
             return "index";
         }
     }
+    
+    
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    protected String doGet2(Model model, HttpServletRequest request) {
+
+        try {
+            
+            request.getSession().setAttribute("userInformation", null);
+            return "index";
+        } catch (Exception e) {
+
+            model.addAttribute("errorMessage", e.toString());
+            return null;
+        }
+    }
+    
+    
 
     private boolean isValid(String username, String password, HttpServletRequest request, Model model) {
 

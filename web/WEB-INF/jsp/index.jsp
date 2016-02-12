@@ -7,6 +7,6 @@
         <h1>${userInformation.contact_num}</h1>
     </div>
     <div class="container">
-        
+
     </div>
 </div>
