@@ -4,6 +4,7 @@
 <script type="text/javascript">
     <%@include file="../resources/bootstrap-min/js/jquery.js" %>
     <%@include file="../resources/bootstrap-min/js/bootstrap.min.js" %>
+    <%@include file="../resources/js/script.js" %>
 </script>
 </body>
 </html>
