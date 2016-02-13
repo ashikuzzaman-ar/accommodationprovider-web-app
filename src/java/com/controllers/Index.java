@@ -19,11 +19,15 @@ public class Index {
 
         try {
             
+            model.addAttribute("indexPageVisibility", "active");
+            model.addAttribute("signupPageVisibility", "");
             return "index";
         } catch (Exception e) {
 
             model.addAttribute("errorMessage", e.toString());
-            return null;
+            model.addAttribute("indexPageVisibility", "active");
+            model.addAttribute("signupPageVisibility", "");
+            return "index";
         }
     }
     
@@ -38,14 +42,20 @@ public class Index {
             if (this.isValid(username, password, request, model)) {
 
                 model.addAttribute("errorMessage", "");
+                model.addAttribute("indexPageVisibility", "active");
+                model.addAttribute("signupPageVisibility", "");
                 return "index";
             } else {
-
+                
+                model.addAttribute("indexPageVisibility", "active");
+                model.addAttribute("signupPageVisibility", "");
                 return "index";
             }
         } catch (Exception e) {
 
             model.addAttribute("errorMessage", e.toString());
+            model.addAttribute("indexPageVisibility", "active");
+            model.addAttribute("signupPageVisibility", "");
             return "index";
         }
     }
@@ -57,11 +67,15 @@ public class Index {
         try {
             
             request.getSession().setAttribute("userInformation", null);
+            model.addAttribute("indexPageVisibility", "active");
+            model.addAttribute("signupPageVisibility", "");
             return "index";
         } catch (Exception e) {
 
             model.addAttribute("errorMessage", e.toString());
-            return null;
+            model.addAttribute("indexPageVisibility", "active");
+            model.addAttribute("signupPageVisibility", "");
+            return "index";
         }
     }
     
@@ -81,11 +95,15 @@ public class Index {
                 if (resultSet.next()) {
 
                     UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+                    
                     userInformation.setU_id(resultSet.getString("u_id"));
                     userInformation.setName(resultSet.getString("name"));
                     userInformation.setPassword(resultSet.getString("password"));
                     userInformation.setEmail(resultSet.getString("email"));
                     userInformation.setContact_num(resultSet.getString("contact_num"));
+                    userInformation.setBirthday(resultSet.getString("birthday"));
+                    userInformation.setGender(resultSet.getString("gender"));
+                    
                     request.getSession().setAttribute("userInformation", userInformation);
                     model.addAttribute("errorMessage", "");
                     return true;
