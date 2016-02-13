@@ -7,16 +7,7 @@ public class UserInformation {
     private String password ;
     private String email ;
     private String contact_num ;
-    private String birthday ;
     private String gender ;
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
 
     public String getGender() {
         return gender;

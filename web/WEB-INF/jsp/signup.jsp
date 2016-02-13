@@ -61,64 +61,6 @@
                 </div>
                 <div class="row form-padding">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <span class="label label-success">Choose birthday</span>
-                    </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <div class="row small">
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <label class="label-primary">Date</label>
-                                <select class="dropdown" name="date" size="1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
-                            </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <label class="label-primary">Month</label>
-                                <select class="dropdown" name="month" size="1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                </select>
-                            </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <label class="label-primary">Year</label>
-                                <select class="dropdown" name="year" size="1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row form-padding">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <span class="label label-success">Choose Gender</span>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">

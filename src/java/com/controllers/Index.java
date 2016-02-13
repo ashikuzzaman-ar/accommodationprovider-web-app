@@ -101,7 +101,6 @@ public class Index {
                     userInformation.setPassword(resultSet.getString("password"));
                     userInformation.setEmail(resultSet.getString("email"));
                     userInformation.setContact_num(resultSet.getString("contact_num"));
-                    userInformation.setBirthday(resultSet.getString("birthday"));
                     userInformation.setGender(resultSet.getString("gender"));
                     
                     request.getSession().setAttribute("userInformation", userInformation);
