@@ -14,10 +14,13 @@ public class Signup {
 
         try {
             
-            
+            model.addAttribute("indexPageVisibility", "");
+            model.addAttribute("signupPageVisibility", "active");
             return "signup";
         } catch (Exception e) {
 
+            model.addAttribute("indexPageVisibility", "");
+            model.addAttribute("signupPageVisibility", "active");
             return "index";
         }
     }

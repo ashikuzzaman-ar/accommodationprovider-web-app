@@ -1,5 +1,180 @@
-<diV>
-    <div class="jumbotron centered ">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+        </div>
+
+
+
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 jumbotron">
+            <h1>Sign Up</h1>
+            <h3>It's free and always will be.</h3>
+            <form class="form" action="#" method="POST">
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">Full name</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <input class="form-control" type="text" name="fullName" placeholder="Full name" />
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">User ID</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <input class="form-control" type="text" name="userID" placeholder="User ID" />
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">Password</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <input class="form-control" type="password" name="password" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">Repeat password again</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <input class="form-control" type="password" name="repeatPassword" placeholder="Repeat password" />
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">Email</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <input class="form-control" type="text" name="email" placeholder="Email" />
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">Contact number</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <input class="form-control" type="text" name="contactNumber" placeholder="Contact number" />
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">Choose birthday</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <div class="row small">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <label class="label-primary">Date</label>
+                                <select class="dropdown" name="date" size="1">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <label class="label-primary">Month</label>
+                                <select class="dropdown" name="month" size="1">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <label class="label-primary">Year</label>
+                                <select class="dropdown" name="year" size="1">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">Choose Gender</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <label class="label-warning">Male</label>
+                                <input class="" type="radio" name="gender" value="male" />
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <label class="label-warning">Female</label>
+                                <input type="radio" name="gender" value="female" />
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <label class="label-warning">Other</label>
+                                <input type="radio" name="gender" value="other" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <h6 style="color: green">Type this to right side box</h6>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <input type="text" name="robotTest1" value="" readonly="readonly" />
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <input type="text" name="robotTest2" />
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <h6 style="color: green">Please Accept Terms & Condition</h6>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <input type="checkbox" name="condition" value="ON" />
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <a href="#">Terms & Condition</a>
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-padding">
+                        <input class="btn btn-primary btn-lg" type="submit" value="Confirm" name="confirm" />
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-padding">
+                        <input class="btn btn-info btn-lg" type="reset" value="Reset" name="reset" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="jumbotron">
         <div class="form">
 
             <form name="signupform">
@@ -68,4 +243,4 @@
             </form>
         </div>
     </div>
-</diV>
+</div>

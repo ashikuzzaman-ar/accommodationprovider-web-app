@@ -1,5 +1,9 @@
 <div>
-    <h1>Footer Test</h1>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <h6>Footer Info will be driven here.....</h6>
+        </div>
+    </nav>
 </div>
 <script type="text/javascript">
     <%@include file="../resources/bootstrap-min/js/jquery.js" %>

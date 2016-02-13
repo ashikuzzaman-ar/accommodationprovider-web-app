@@ -1,5 +1,6 @@
 body { 
-    padding-top: 70px; 
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 .no-padding {
@@ -7,4 +8,9 @@ body {
     padding-left: 0px;
     padding-right: 0px;
     padding-top: 0px;
+}
+
+.form-padding {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
