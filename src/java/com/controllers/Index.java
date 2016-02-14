@@ -18,7 +18,7 @@ public class Index {
     protected String doGet(Model model, HttpServletRequest request) {
 
         try {
-            
+
             model.addAttribute("indexPageVisibility", "active");
             model.addAttribute("signupPageVisibility", "");
             return "index";
@@ -30,7 +30,7 @@ public class Index {
             return "index";
         }
     }
-    
+
     @RequestMapping(value = "index", method = RequestMethod.POST)
     protected String doPost(Model model,
             @RequestParam(value = "username") String username,
@@ -46,7 +46,7 @@ public class Index {
                 model.addAttribute("signupPageVisibility", "");
                 return "index";
             } else {
-                
+
                 model.addAttribute("indexPageVisibility", "active");
                 model.addAttribute("signupPageVisibility", "");
                 return "index";
@@ -59,13 +59,12 @@ public class Index {
             return "index";
         }
     }
-    
-    
+
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     protected String doGet2(Model model, HttpServletRequest request) {
 
         try {
-            
+
             request.getSession().setAttribute("userInformation", null);
             model.addAttribute("indexPageVisibility", "active");
             model.addAttribute("signupPageVisibility", "");
@@ -78,8 +77,6 @@ public class Index {
             return "index";
         }
     }
-    
-    
 
     private boolean isValid(String username, String password, HttpServletRequest request, Model model) {
 
@@ -87,22 +84,22 @@ public class Index {
 
             if (!("".equals(username.trim())) && !("".equals(password.trim()))) {
 
-                String sql = "SELECT * FROM user_info WHERE u_id = \""
-                        + username + "\" AND password = \"" + password + "\"";
+                String sql = "SELECT * FROM user_info WHERE u_id = "
+                        + "'" + username + "' AND password = '" + password + "'";
                 ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
                 ResultSet resultSet = connectToDatabase.getResult(sql);
 
                 if (resultSet.next()) {
 
                     UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-                    
+
                     userInformation.setU_id(resultSet.getString("u_id"));
                     userInformation.setName(resultSet.getString("name"));
                     userInformation.setPassword(resultSet.getString("password"));
                     userInformation.setEmail(resultSet.getString("email"));
                     userInformation.setContact_num(resultSet.getString("contact_num"));
                     userInformation.setGender(resultSet.getString("gender"));
-                    
+
                     request.getSession().setAttribute("userInformation", userInformation);
                     model.addAttribute("errorMessage", "");
                     return true;
