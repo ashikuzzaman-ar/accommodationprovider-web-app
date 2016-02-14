@@ -1,13 +1,13 @@
 package com.models;
 
 public class UserInformation {
-    
-    private String u_id ;
-    private String name ;
-    private String password ;
-    private String email ;
-    private String contact_num ;
-    private String gender ;
+
+    private String u_id;
+    private String name;
+    private String password;
+    private String email;
+    private String contact_num;
+    private String gender;
 
     public String getGender() {
         return gender;
@@ -55,5 +55,19 @@ public class UserInformation {
 
     public void setContact_num(String contact_num) {
         this.contact_num = contact_num;
+    }
+
+    public void setNull() {
+
+        try {
+
+            this.setContact_num(null);
+            this.setEmail(null);
+            this.setGender(null);
+            this.setName(null);
+            this.setPassword(null);
+            this.setU_id(null);
+        } catch (Exception e) {
+        }
     }
 }
