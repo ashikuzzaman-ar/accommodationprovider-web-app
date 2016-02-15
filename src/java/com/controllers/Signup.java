@@ -52,7 +52,7 @@ public class Signup {
                 ConnectToDatabase connectToDatabase = (ConnectToDatabase)GetBeans.getBean("connectToDatabase");
                 connectToDatabase.getResult(sql);
                 userInformation.setNull();
-                model.addAttribute("errorMessage", "Now Login please!");
+                model.addAttribute("errorMessage", "Congratulation! Now Login please.");
             } else {
 
                 model.addAttribute("errorMessage", userInformationResult.getAllErrors().toString());

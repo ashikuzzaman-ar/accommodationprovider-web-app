@@ -10,6 +10,14 @@ body {
     padding-top: 0px;
 }
 
+.font-large {
+    font-size: 50px;
+}
+
+.font-medium {
+    font-size: 25px;
+}
+
 .form-padding {
     padding-top: 10px;
     padding-bottom: 10px;

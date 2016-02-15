@@ -78,6 +78,35 @@ public class Index {
         }
     }
 
+    @RequestMapping(value = "search", method = RequestMethod.POST)
+    protected String doPost2(Model model,
+            @RequestParam("search") String searchKey) {
+
+        try {
+
+            if (!searchKey.trim().equals("")) {
+
+                String sql = "SELECT * FROM advertisement_info where (u_id = "
+                        + "'" + searchKey + "%' OR address LIKE "
+                        + "'%" + searchKey + "%')";
+                
+                ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+//                ResultSet resultSet = connectToDatabase.getResult(sql);
+                
+                model.addAttribute("searchResults", connectToDatabase.getResult(sql));
+            }
+            model.addAttribute("indexPageVisibility", "active");
+            model.addAttribute("signupPageVisibility", "");
+            return "index";
+        } catch (Exception e) {
+
+            model.addAttribute("errorMessage", e.toString());
+            model.addAttribute("indexPageVisibility", "active");
+            model.addAttribute("signupPageVisibility", "");
+            return "index";
+        }
+    }
+
     private boolean isValid(String username, String password, HttpServletRequest request, Model model) {
 
         try {
