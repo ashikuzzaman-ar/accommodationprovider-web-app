@@ -12,6 +12,9 @@
         <span class="font-large">Welcome to UIU Accommodation Provider</span>
     </div>
     <div class="container">
+        <div id="sample" style="width:570px;height:580px;"></div>
+    </div>
+    <div class="container">
         ${errorMessage}
         <% if (!request.getAttribute("searchResults").equals("")) { %>
         <h1>Search result is shown below</h1>

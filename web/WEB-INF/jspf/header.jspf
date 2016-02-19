@@ -12,10 +12,24 @@
             <%@include file="../resources/css/errortemplate.css" %>
             <%@include file="../resources/css/style.css" %>
         </style>
+        <script type="text/javascript">
+            <%@include file="../resources/js/google-map-api.js" %>
+        </script>
+        <script type="text/javascript">
+            function loadMap() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(23.744548, 90.372840),
+                    zoom: 15,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("sample"), mapOptions);
+            }
+        </script>
+
         <title>Welcome to UIU-AP</title>
     </head>
 
-    <body>
+    <body onload="loadMap();">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
