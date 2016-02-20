@@ -21,9 +21,9 @@ public class ConnectToDatabase {
     private void initMethod(){
         
         this.className = "com.mysql.jdbc.Driver";
-        this.databaseURL = "jdbc:mysql://localhost/accommodation_provider";
-        this.username = "root";
-        this.password = "studevs";
+        this.databaseURL = "jdbc:mysql://127.5.20.130:3306/uiuap";
+        this.username = "adminBbvpjMr";
+        this.password = "giSzIdxeJFKM";
     }
     
 
