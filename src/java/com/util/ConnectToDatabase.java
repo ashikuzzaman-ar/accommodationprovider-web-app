@@ -17,20 +17,13 @@ public class ConnectToDatabase {
     private String username;
     private String password;
 
-    public void setClassName(String className) {
-        this.className = className;
-    }
 
-    public void setDatabaseURL(String databaseURL) {
-        this.databaseURL = databaseURL;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    private void initMethod(){
+        
+        this.className = "com.mysql.jdbc.Driver";
+        this.databaseURL = "jdbc:mysql://localhost/accommodation_provider";
+        this.username = "root";
+        this.password = "studevs";
     }
     
 
