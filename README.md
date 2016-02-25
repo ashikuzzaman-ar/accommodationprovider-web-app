@@ -13,3 +13,11 @@ This README would normally document whatever steps are necessary to get your app
 7.check duplication in case of add submission
 8.admin will be able to remove user if needed
 9.header in every page must highlight the current page
+
+...............................................................................................
+
+1)Complete database
+2)Create Option for Add Posting
+3)Add javascript at front-end for add posting
+4)Show adds option(may be simple tables)
+5)Take to google map from adds.
