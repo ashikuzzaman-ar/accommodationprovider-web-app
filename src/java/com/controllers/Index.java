@@ -91,8 +91,6 @@ public class Index {
                         + "'%" + searchKey + "%')";
                 
                 ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-//                ResultSet resultSet = connectToDatabase.getResult(sql);
-                
                 model.addAttribute("searchResults", connectToDatabase.getResult(sql));
             }
             model.addAttribute("indexPageVisibility", "active");

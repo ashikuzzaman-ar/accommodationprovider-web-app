@@ -1,25 +1,15 @@
-<div>
+<!--<div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
             <h6>Footer Info will be driven here.....</h6>
         </div>
     </nav>
-</div>
+</div>-->
 <script type="text/javascript">
     <%@include file="../resources/bootstrap-min/js/jquery.js" %>
     <%@include file="../resources/bootstrap-min/js/bootstrap.min.js" %>
     <%@include file="../resources/js/script.js" %>
-    <%@include file="../resources/js/google-map-api.js" %>
 </script>
-<script type="text/javascript">
-    function loadMap() {
-        var mapOptions = {
-            center: new google.maps.LatLng(23.744548, 90.372840),
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("sample"), mapOptions);
-    }
-</script>
+
 </body>
 </html>

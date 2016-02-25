@@ -17,22 +17,20 @@ public class ConnectToDatabase {
     private String username;
     private String password;
 
+    private void initMethod() {
 
-    private void initMethod(){
-        
         this.className = "com.mysql.jdbc.Driver";
-        this.databaseURL = "jdbc:mysql://127.5.20.130:3306/uiuap";
-        this.username = "adminBbvpjMr";
-        this.password = "giSzIdxeJFKM";
+        this.databaseURL = "jdbc:mysql://127.0.0.1:3306/accommodation_provider";
+        this.username = "root";
+        this.password = "";
     }
-    
 
     private void setConnection() {
 
         try {
 
             Class.forName(this.className);
-            this.connection = DriverManager.getConnection(this.databaseURL,this.username,this.password);
+            this.connection = DriverManager.getConnection(this.databaseURL, this.username, this.password);
             this.statement = this.connection.createStatement();
 
         } catch (ClassNotFoundException | SQLException e) {

@@ -86,3 +86,24 @@ function validate() {
     }
 
 }
+
+function initMap() {
+    var mapDiv = document.getElementById('map');
+    var map = new google.maps.Map(mapDiv, {
+        center: {lat: 44.540, lng: -78.546},
+        zoom: 8
+    });
+}
+
+
+
+
+function hide(element) {
+    document.getElementById(element).style.display = 'none';
+}
+
+
+function show(element) {
+    document.getElementById(element).style.display = 'block';
+
+}
