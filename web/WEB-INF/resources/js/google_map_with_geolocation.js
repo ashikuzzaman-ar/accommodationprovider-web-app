@@ -1,6 +1,6 @@
 var geocoder;
 var map;
-function initialize(map) {
+function initialize() {
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(23.81033, 90.41252);
     var mapOptions = {
