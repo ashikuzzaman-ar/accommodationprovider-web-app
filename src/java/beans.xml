@@ -11,22 +11,6 @@
        
     
     <bean id="connectToDatabase" class="com.util.ConnectToDatabase" init-method="initMethod" scope="singleton">
-<!--        <property name="databaseURL">
-            jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/accommodation_provider
-            jdbc:mysql://127.3.176.130:3306/
-            <value>jdbc:mysql://localhost/accommodation_provider</value>
-            jdbc:mysql://localhost:3036/accommodation_provider
-        </property>-->
-<!--        <property name="username">
-            admincrkEZrF
-            <value>root</value>
-            root
-        </property>-->
-<!--        <property name="password">
-            fIcxIQ5eBDjY
-            <value>studevs</value>
-            studevs
-        </property>-->
     </bean>
     
     <bean id="userInformation" class="com.models.UserInformation" scope="singleton">

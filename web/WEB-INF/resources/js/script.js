@@ -1,3 +1,54 @@
+function checkNull(id) {
+
+    if (document.getElementById(id).value.trim() === "") {
+
+        document.getElementById(id).style.backgroundColor = "red";
+        return false;
+    } else {
+
+        document.getElementById(id).style.backgroundColor = "greenyellow";
+        return true;
+    }
+}
+
+function robotAccessTesting(id1, id2){
+    
+    if(checkNull(id1)){
+        
+        if(document.getElementById(id1).value===document.getElementById(id2).value){
+            
+            document.getElementById(id1).style.backgroundColor = "greenyellow";
+            return true;
+        }else{
+            
+            document.getElementById(id1).style.backgroundColor = "red";
+            return false;
+        }
+    }else{
+        
+        return false;
+    }
+}
+
+function passwordMatching(id1, id2) {
+
+    if (checkNull(id1)) {
+
+        if (document.getElementById(id1).value === document.getElementById(id2).value) {
+
+            document.getElementById(id1).style.backgroundColor = "greenyellow";
+            return true;
+        } else {
+            document.getElementById(id1).style.backgroundColor = "red";
+            return false;
+        }
+    } else {
+
+        return false;
+    }
+}
+
+
 function validate() {
 
     var usernameempty = 0;
@@ -84,5 +135,26 @@ function validate() {
     } else {
         return false;
     }
+
+}
+
+function initMap() {
+    var mapDiv = document.getElementById('map');
+    var map = new google.maps.Map(mapDiv, {
+        center: {lat: 44.540, lng: -78.546},
+        zoom: 8
+    });
+}
+
+
+
+
+function hide(element) {
+    document.getElementById(element).style.display = 'none';
+}
+
+
+function show(element) {
+    document.getElementById(element).style.display = 'block';
 
 }

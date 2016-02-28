@@ -1,8 +1,3 @@
-body { 
-    padding-top: 70px;
-    padding-bottom: 70px;
-}
-
 .no-padding {
     padding-bottom: 0px;
     padding-left: 0px;
@@ -22,3 +17,58 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.initialmap{
+    width: 600px;
+    height: 500px;
+    margin-top: 2em;
+    margin: 0 auto 0 auto;
+}
+
+/*html, body, .container-table {
+    height: 100%;
+}
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}*/
+
+/*.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 50%;
+}
+.middle{ 
+    margin: 0 auto 0 auto;
+}*/
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#map {
+    height: 80%;
+    width: 60%;
+    margin: 0 auto 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
