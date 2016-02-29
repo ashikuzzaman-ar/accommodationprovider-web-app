@@ -16,4 +16,8 @@
     <bean id="userInformation" class="com.models.UserInformation" scope="singleton">
     </bean>
 
+    <bean id="advertisementModel" class="com.models.AdvertisementModel" scope="singleton">
+    </bean>
+
+
 </beans>

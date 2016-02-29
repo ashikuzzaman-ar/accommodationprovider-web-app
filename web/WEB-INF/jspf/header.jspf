@@ -61,6 +61,7 @@
                                 Login
                             </a>
                             <div class="dropdown-menu">
+                                <!--Index.java controller-->
                                 <form class="navbar-form navbar-left" action="index" method="POST">
                                     <div class="form-group form-group-lg">
                                         <table>
@@ -94,13 +95,13 @@
                                 Dash Board<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="#">Find a place</a></li>
+                                <li><a href="post_add">Post an add</a></li>
+<!--                                <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>-->
                             </ul>
                         </li>
                     </ul>

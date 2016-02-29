@@ -1,3 +1,7 @@
+.no-margin{
+    
+    margin: 0px;
+}
 .no-padding {
     padding-bottom: 0px;
     padding-left: 0px;
@@ -63,12 +67,12 @@ html, body {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-#map {
+/*#map {
     height: 80%;
     width: 60%;
     margin: 0 auto 0 auto;
     margin-top: 10px;
     margin-bottom: 10px;
 
-}
+}*/
 

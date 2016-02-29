@@ -16,13 +16,23 @@ public class ConnectToDatabase {
     private String databaseURL;
     private String username;
     private String password;
+    private Exception expections;
+
+    public Exception getExpections() {
+        return expections;
+    }
 
     private void initMethod() {
 
-        this.className = "com.mysql.jdbc.Driver";
-        this.databaseURL = "jdbc:mysql://localhost/uiuap";
-        this.username = "root";
-        this.password = "studevs";
+        try {
+            this.className = "com.mysql.jdbc.Driver";
+            this.databaseURL = "jdbc:mysql://localhost/uiuap";
+            this.username = "root";
+            this.password = "studevs";
+        } catch (Exception e) {
+
+            this.expections = e;
+        }
     }
 
     private void setConnection() {
@@ -35,6 +45,7 @@ public class ConnectToDatabase {
 
         } catch (ClassNotFoundException | SQLException e) {
 
+            this.expections = e;
         }
     }
 
@@ -47,7 +58,7 @@ public class ConnectToDatabase {
             this.resultSet = this.statement.getResultSet();
         } catch (SQLException ex) {
 
-            System.out.println(ex);
+            this.expections = ex;
         }
     }
 
@@ -68,6 +79,7 @@ public class ConnectToDatabase {
             this.sql = null;
         } catch (Exception e) {
 
+            this.expections = e;
         }
     }
 }
