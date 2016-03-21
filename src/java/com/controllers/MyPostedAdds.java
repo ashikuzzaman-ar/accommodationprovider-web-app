@@ -3,7 +3,6 @@ package com.controllers;
 import com.models.UserInformation;
 import com.util.ConnectToDatabase;
 import com.util.GetBeans;
-import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
@@ -32,8 +31,7 @@ public class MyPostedAdds {
                         + userInformation.getU_id()
                         + "' ORDER BY post_id DESC";
 
-                ResultSet resultSet = connectToDatabase.getResult(sql);
-                model.addAttribute("resultSet", resultSet);
+                model.addAttribute("resultSet", connectToDatabase.getResult(sql));
 
                 return "my_posted_adds";
             }

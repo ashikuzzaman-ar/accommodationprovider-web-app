@@ -1,14 +1,16 @@
-<%@page import="java.io.File"%>
-<%@page import="java.sql.ResultSet"%>
-
-
-
-
-<h1>${errorMessage}</h1>
-<div class="container">
+<%@page import="com.models.UserInformation"%>
+<%@page import="com.util.GetBeans"%>
+<%    
+    UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+    if (userInformation != null) {
+        
+        response.sendRedirect("home");
+    }
+%>
+<div class="container-fluid">
+    <h1>${errorMessage}</h1>
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         </div>
     </div>
 </div>

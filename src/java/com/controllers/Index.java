@@ -19,6 +19,11 @@ public class Index {
 
         try {
 
+            if (request.getSession().getAttribute("userInformation") != null) {
+
+                model.addAttribute("resultSet", this.getResultSet(0, 6));
+                return "home";
+            }
             model.addAttribute("indexPageVisibility", "active");
             model.addAttribute("signupPageVisibility", "");
             return "index";
@@ -44,7 +49,10 @@ public class Index {
                 model.addAttribute("errorMessage", "");
                 model.addAttribute("indexPageVisibility", "active");
                 model.addAttribute("signupPageVisibility", "");
-                return "index";
+
+                model.addAttribute("resultSet", this.getResultSet(0, 6));
+
+                return "home";
             } else {
 
                 model.addAttribute("indexPageVisibility", "active");
@@ -57,6 +65,24 @@ public class Index {
             model.addAttribute("indexPageVisibility", "active");
             model.addAttribute("signupPageVisibility", "");
             return "index";
+        }
+    }
+
+    private ResultSet getResultSet(int startLimit, int endLimit) {
+
+        try {
+
+            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            String sql = "SELECT * FROM uiuap.advertisement_info WHERE u_id!='"
+                    + userInformation.getU_id()
+                    + "' ORDER BY post_id DESC limit "
+                    + startLimit + ", " + endLimit;
+
+            return connectToDatabase.getResult(sql);
+        } catch (Exception e) {
+
+            return null;
         }
     }
 
@@ -89,7 +115,7 @@ public class Index {
                 String sql = "SELECT * FROM advertisement_info where (u_id = "
                         + "'" + searchKey + "%' OR address LIKE "
                         + "'%" + searchKey + "%')";
-                
+
                 ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
                 model.addAttribute("searchResults", connectToDatabase.getResult(sql));
             }
