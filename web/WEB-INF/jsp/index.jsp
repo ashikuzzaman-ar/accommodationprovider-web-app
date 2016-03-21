@@ -1,9 +1,17 @@
+<%@page import="java.io.File"%>
 <%@page import="java.sql.ResultSet"%>
 
 
 
 
 <h1>${errorMessage}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            
+        </div>
+    </div>
+</div>
 
 <!--<div class="container-fluid">
     <div class="row">

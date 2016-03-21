@@ -3,6 +3,10 @@ package com.controllers;
 import com.models.AdvertisementModel;
 import com.util.ConnectToDatabase;
 import com.util.GetBeans;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +28,7 @@ public class PostAdd {
 
                 return "index";
             } else {
-
+                
                 return "post_add";
             }
         } catch (Exception e) {
@@ -50,9 +54,12 @@ public class PostAdd {
                 model.addAttribute("errorMessage", postAddBindingResult.getAllErrors().toString());
                 return "index";
             } else {
-
+                
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = new Date();
+                
                 String sql = "INSERT INTO advertisement_info (u_id, address, type, quantity, "
-                        + "deadline, availability, house_rent, utility_cost, provided_fasility) "
+                        + "deadline, availability, house_rent, utility_cost, provided_fasility, post_date) "
                         + "VALUES ("
                         + "'" + advertisementModel.getPosterID() + "', "
                         + "'" + advertisementModel.getAdress() + "', "
@@ -62,10 +69,20 @@ public class PostAdd {
                         + "'" + "Y" + "', "
                         + "'" + advertisementModel.getRent() + "', "
                         + "'" + advertisementModel.getUtility() + "', "
-                        + "'" + advertisementModel.getFacility() + "'"
+                        + "'" + advertisementModel.getFacility() + "', "
+                        + "'" + dateFormat.format(date) + "'"
                         + ")";
                 ConnectToDatabase connectToDatabase = (ConnectToDatabase)GetBeans.getBean("connectToDatabase");
                 connectToDatabase.getResult(sql);
+                
+                sql = "SELECT * FROM advertisement_info WHERE u_id='"
+                        + advertisementModel.getPosterID()
+                        + "' ORDER BY post_id DESC";
+                
+                ResultSet resultSet = connectToDatabase.getResult(sql);
+                model.addAttribute("resultSet", resultSet);
+                
+                
                 return "my_posted_adds";
             }
         } catch (Exception e) {

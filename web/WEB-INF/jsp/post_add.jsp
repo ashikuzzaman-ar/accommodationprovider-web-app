@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <div class="container-fluid">
     <div class="row jumbotron">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -9,7 +10,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <h1>Post A Add</h1>
+            <h1>Post An Add</h1>
             <h3>Please fill all necessary field carefully and correctly</h3>
             <!--PostAdd.java Controller-->
             <form class="form" action="post_add" onsubmit="" method="POST">
@@ -73,7 +74,7 @@
                         <input required="true" id="utility" onkeyup="checkNull('utility')" class="form-control" type="text" name="utility" placeholder="Utility Cost" />
                     </div>
                 </div>
-                 <div class="row form-padding">
+                <div class="row form-padding">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <span class="label label-success">Special Facility</span>
                     </div>

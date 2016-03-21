@@ -5,6 +5,7 @@ import com.util.ConnectToDatabase;
 import com.util.GetBeans;
 import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,8 @@ public class MyPostedAdds {
 
     @RequestMapping(value = "my_posted_adds", method = RequestMethod.GET)
     protected String doGet(Model model,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            HttpServletResponse response) {
 
         try {
 
@@ -24,23 +26,20 @@ public class MyPostedAdds {
                 return "index";
             } else {
 
-                UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
-                String sql = "SELECT * advertisement_info WHERE u_id='"
-                        + userInformation.getU_id() + "' ORDER BY post_id DESC";
-                
-                ConnectToDatabase connectToDatabase = (ConnectToDatabase)GetBeans.getBean("connectToDatabase");
+                UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+                ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+                String sql = "SELECT * FROM advertisement_info WHERE u_id='"
+                        + userInformation.getU_id()
+                        + "' ORDER BY post_id DESC";
+
                 ResultSet resultSet = connectToDatabase.getResult(sql);
-                
                 model.addAttribute("resultSet", resultSet);
-                String i = "0+";
-                while(resultSet.next()){
-                    i = i+"  "+resultSet.getInt("post_id");
-                }
-                model.addAttribute("errorMessage", connectToDatabase.getExpections().toString());//connectToDatabase.getExpections().toString()
+
                 return "my_posted_adds";
             }
         } catch (Exception e) {
 
+            model.addAttribute("errorMessage", e);
             return "index";
         }
     }
