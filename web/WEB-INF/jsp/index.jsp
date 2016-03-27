@@ -1,12 +1,3 @@
-<%@page import="com.models.UserInformation"%>
-<%@page import="com.util.GetBeans"%>
-<%    
-    UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-    if (userInformation != null) {
-        
-        response.sendRedirect("home");
-    }
-%>
 <div class="container-fluid">
     <h1>${errorMessage}</h1>
     <div class="row">

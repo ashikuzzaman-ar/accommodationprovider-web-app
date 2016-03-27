@@ -26,11 +26,11 @@ public class ConnectToDatabase {
 
         try {
             this.className = "com.mysql.jdbc.Driver";
-            this.databaseURL = "jdbc:mysql://127.5.20.130:3306/uiuap";
+            this.databaseURL = "jdbc:mysql://localhost/uiuap";
 //            127.5.20.130:3306
 //            localhost
-            this.username = "root";
-            this.password = "studevs";
+            this.username = "root";//adminBbvpjMr
+            this.password = "studevs";//giSzIdxeJFKM
         } catch (Exception e) {
 
             this.expections = e;

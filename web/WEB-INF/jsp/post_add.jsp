@@ -13,7 +13,7 @@
             <h1>Post An Add</h1>
             <h3>Please fill all necessary field carefully and correctly</h3>
             <!--PostAdd.java Controller-->
-            <form class="form" action="post_add" onsubmit="" method="POST">
+            <form class="form" action="post_add" method="POST">
                 <div class="row form-padding">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <span class="label label-success">Poster ID</span>
