@@ -1,13 +1,14 @@
 <%@page import="java.sql.ResultSet"%>
 <%
-    ResultSet resultSet = (ResultSet) request.getAttribute("resultSet");
+    ResultSet resultSet = (ResultSet) request.getAttribute("searchResults");
+//    int rowCount = 0;
 %>
 <div class="container-fluid">
     <h1>${errorMessage}</h1>
     <div class="jumbotron">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                <h1>Most Recent Posts</h1>
+                <h1>Your Search Results</h1>
             </div>
         </div>
         <div class="row">

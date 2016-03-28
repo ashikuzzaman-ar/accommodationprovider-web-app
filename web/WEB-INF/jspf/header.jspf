@@ -86,6 +86,28 @@
                         <li class="">
                             <a href="profile">${userInformation.name}</a>
                         </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Search Places
+                            </a>
+                            <div class="dropdown-menu">
+                                <!--Index.java controller-->
+                                <form class="navbar-form navbar-left" action="search" method="POST">
+                                    <div class="form-group form-group-lg">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <input name="search" type="text" class="form-control" placeholder="Search" value="" />
+                                                </td>
+                                                <td>
+                                                    <input type="submit" class="btn btn-primary" value="Go" name="button" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
                         <li class="">
                             <a href="logout">Logout</a>
                         </li>
@@ -95,13 +117,12 @@
                                 Dash Board<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Find a place</a></li>
                                 <li><a href="post_add">Post an add</a></li>
                                 <li><a href="my_posted_adds">My Posts</a></li>
-<!--                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>-->
+                                <!--                                <li role="separator" class="divider"></li>
+                                                                <li><a href="#">Separated link</a></li>
+                                                                <li role="separator" class="divider"></li>
+                                                                <li><a href="#">One more separated link</a></li>-->
                             </ul>
                         </li>
                     </ul>

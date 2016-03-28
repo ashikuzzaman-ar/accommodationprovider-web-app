@@ -4,6 +4,9 @@ import com.models.UserInformation;
 import com.util.ConnectToDatabase;
 import com.util.GetBeans;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -74,9 +77,13 @@ public class Index {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
             UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-            String sql = "SELECT * FROM uiuap.advertisement_info WHERE u_id!='"
+
+            String sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
                     + userInformation.getU_id()
-                    + "' ORDER BY post_id DESC limit "
+                    + "' AND advertisement_info.u_id in ("
+                    + "SELECT u_id FROM uiuap.user_info WHERE gender='"
+                    + userInformation.getGender()
+                    + "')) ORDER BY post_id DESC limit "
                     + startLimit + ", " + endLimit;
 
             return connectToDatabase.getResult(sql);
@@ -112,22 +119,50 @@ public class Index {
 
             if (!searchKey.trim().equals("")) {
 
-                String sql = "SELECT * FROM advertisement_info where (u_id = "
-                        + "'" + searchKey + "%' OR address LIKE "
-                        + "'%" + searchKey + "%')";
+                model.addAttribute("searchResults", this.getSearchResult(model, searchKey));
+                return "search_places";
+            } else {
 
-                ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-                model.addAttribute("searchResults", connectToDatabase.getResult(sql));
+                model.addAttribute("indexPageVisibility", "active");
+                model.addAttribute("signupPageVisibility", "");
+                return "index";
             }
-            model.addAttribute("indexPageVisibility", "active");
-            model.addAttribute("signupPageVisibility", "");
-            return "index";
         } catch (Exception e) {
 
             model.addAttribute("errorMessage", e.toString());
             model.addAttribute("indexPageVisibility", "active");
             model.addAttribute("signupPageVisibility", "");
             return "index";
+        }
+    }
+
+    private ResultSet getSearchResult(Model model, String searchKey) {
+
+        try {
+
+            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+
+            String sql = "SELECT * FROM uiuap.advertisement_info WHERE ((advertisement_info.u_id!='"
+                    + userInformation.getU_id()
+                    + "' AND advertisement_info.availability='Y' AND advertisement_info.deadline>='"
+                    + dateFormat.format(date)
+                    + "' AND advertisement_info.u_id in ("
+                    + "SELECT u_id FROM uiuap.user_info WHERE gender='"
+                    + userInformation.getGender()
+                    + "')) AND ("
+                    + "advertisement_info.address LIKE '%" + searchKey + "%' OR "
+                    + "advertisement_info.u_id LIKE '%" + searchKey + "%' OR "
+                    + "advertisement_info.type LIKE '%" + searchKey + "%'"
+                    + "))";
+            return connectToDatabase.getResult(sql);
+        } catch (Exception e) {
+
+            model.addAttribute("errorMessage", e.toString());
+            return null;
         }
     }
 
