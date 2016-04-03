@@ -1,7 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container-fluid">
     <h1>${errorMessage}</h1>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <img height="300" width="300" src="<c:url value="/resources/images/a.jpg"/>">
         </div>
     </div>
 </div>

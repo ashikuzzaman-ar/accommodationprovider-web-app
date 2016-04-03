@@ -30,7 +30,7 @@ public class ConnectToDatabase {
 //            127.5.20.130:3306
 //            localhost
             this.username = "root";//adminBbvpjMr
-            this.password = "studevs";//giSzIdxeJFKM
+            this.password = "studevsdb";//giSzIdxeJFKM
         } catch (Exception e) {
 
             this.expections = e;
