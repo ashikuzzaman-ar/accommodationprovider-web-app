@@ -1,9 +1,11 @@
-<div>
-    <naEv class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-            <h6>Footer Info will be driven here.....</h6>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>Copyright &copy; StuDevs 2016</p>
+            </div>
         </div>
-    </nav>
-</div>
+    </div>
+</footer>
 </body>
 </html>
