@@ -17,22 +17,22 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img class="img-responsive img-full" src="<c:url value="/resources/images/slide-1.jpg"/>" alt="" />
+                            <img class="img-responsive img-full" src="<c:url value="/resources/media/front-pictures/fp1.jpg"/>" alt="" />
                         </div>
                         <div class="item">
-                            <img class="img-responsive img-full" src="<c:url value="/resources/images/slide-2.jpg"/>" alt="" />
+                            <img class="img-responsive img-full" src="<c:url value="/resources/media/front-pictures/fp2.jpg"/>" alt="" />
                         </div>
                         <div class="item">
-                            <img class="img-responsive img-full" src="<c:url value="/resources/images/slide-3.jpg"/>" alt="" />
+                            <img class="img-responsive img-full" src="<c:url value="/resources/media/front-pictures/fp3.jpg"/>" alt="" />
                         </div>
                         <div class="item">
-                            <img class="img-responsive img-full" src="<c:url value="/resources/images/slide-4.jpg"/>" alt="" />
+                            <img class="img-responsive img-full" src="<c:url value="/resources/media/front-pictures/fp4.jpg"/>" alt="" />
                         </div>
                         <div class="item">
-                            <img class="img-responsive img-full" src="<c:url value="/resources/images/slide-5.jpg"/>" alt="" />
+                            <img class="img-responsive img-full" src="<c:url value="/resources/media/front-pictures/fp5.jpg"/>" alt="" />
                         </div>
                         <div class="item">
-                            <img class="img-responsive img-full" src="<c:url value="/resources/images/slide-6.jpg"/>" alt="" />
+                            <img class="img-responsive img-full" src="<c:url value="/resources/media/front-pictures/fp6.jpg"/>" alt="" />
                         </div>
                     </div>
 
@@ -53,6 +53,31 @@
                     <small>Powered By :</small>
                     <strong>Social Services Club</strong>
                 </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr/>
+                <h2 class="intro-text text-center">What is
+                    <strong class="">Accommodation Provider</strong>
+                </h2>
+                <hr/>
+                <img class="img-responsive img-border img-left" src="<c:url value="/resources/media/logos/l2.jpg"/>" alt="">
+                <hr class="visible-xs">
+                <p>Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                Social Services Club's Content will be shown here.
+                </p>
             </div>
         </div>
     </div>

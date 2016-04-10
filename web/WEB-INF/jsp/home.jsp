@@ -6,8 +6,12 @@
     <h1>${errorMessage}</h1>
     <div class="jumbotron">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                <h1>Most Recent Posts</h1>
+            <div class="col-lg-12">
+                <div class="intro-text text-center">
+                    <hr/>
+                    <strong class="h1">Most Recent Posts</strong>
+                    <hr/>
+                </div>
             </div>
         </div>
         <div class="row">

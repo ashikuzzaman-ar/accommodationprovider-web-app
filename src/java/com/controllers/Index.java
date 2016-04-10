@@ -40,7 +40,7 @@ public class Index {
     }
 
     @RequestMapping(value = "index", method = RequestMethod.POST)
-    protected String doPost(Model model,
+    protected String doPost1(Model model,
             @RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password,
             HttpServletRequest request) {
@@ -67,6 +67,57 @@ public class Index {
             model.addAttribute("errorMessage", e.toString());
             model.addAttribute("indexPageVisibility", "active");
             model.addAttribute("signupPageVisibility", "");
+            return "index";
+        }
+    }
+
+    @RequestMapping(value = "send_message", method = RequestMethod.POST)
+    protected String doPost2(Model model,
+            @RequestParam(value = "message", defaultValue = "") String message,
+            @RequestParam(value = "receiverID", defaultValue = "") String receiverID) {
+
+        try {
+
+            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+
+            DateFormat dateFormat = new SimpleDateFormat();
+            Date date = new Date();
+
+            String sql = "SELECT * FROM messages WHERE (sender_id='"
+                    + userInformation.getU_id()
+                    + "' AND receiver_id='"
+                    + receiverID
+                    + "')";
+
+            ResultSet resultSet = connectToDatabase.getResult(sql);
+
+            if (resultSet.next()) {
+
+                message = dateFormat.format(date) + "::[/])):" + message + "<%(#%#)*/*>" + resultSet.getString("messages_text");
+                sql = "UPDATE messages SET messages_text='"
+                        + message
+                        + "' WHERE sender_id='"
+                        + userInformation.getU_id()
+                        + "' AND receiver_id='"
+                        + receiverID
+                        + "'";
+            } else {
+
+                message = dateFormat.format(date) + "::[/])):" + message;
+                sql = "INSERT INTO messages (sender_id, receiver_id, messages_text) VALUES ('"
+                        + userInformation.getU_id() + "', '"
+                        + receiverID + "', '"
+                        + message + "')";
+            }
+
+            connectToDatabase.getResult(sql);
+
+            model.addAttribute("resultSet", this.getResultSet(0, 6));
+            return "home";
+        } catch (Exception e) {
+
+            model.addAttribute("errorMessage", e.toString());
             return "index";
         }
     }
@@ -112,7 +163,7 @@ public class Index {
     }
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    protected String doPost2(Model model,
+    protected String doPost3(Model model,
             @RequestParam("search") String searchKey) {
 
         try {

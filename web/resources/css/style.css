@@ -29,57 +29,12 @@
     margin: 0 auto 0 auto;
 }
 
-/*html, body, .container-table {
-    height: 100%;
-}
-.container-table {
-    display: table;
-}
-.vertical-center-row {
-    display: table-cell;
-    vertical-align: middle;
-}*/
-
-/*.outer {
-    display: table;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.middle {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.inner {
-    margin-left: auto;
-    margin-right: auto; 
-    width: 50%;
-}
-.middle{ 
-    margin: 0 auto 0 auto;
-}*/
-
 html, body {
     height: 100%;
     margin: 0;
-    background-image: url("../images/back01.jpg");
+    background-image: url("../media/backgrounds/b6.jpg");
+    /*background-repeat: no-repeat;*/
 }
-/*#map {
-    height: 80%;
-    width: 60%;
-    margin: 0 auto 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-}*/
-
-/*!
- * Start Bootstrap - Business Casual Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -88,6 +43,7 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    padding-top: 7%;
 }
 
 h1,
