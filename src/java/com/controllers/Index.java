@@ -25,16 +25,19 @@ public class Index {
             if (request.getSession().getAttribute("userInformation") != null) {
 
                 model.addAttribute("resultSet", this.getResultSet(0, 6));
+                model.addAttribute("messageResultSet", this.getMessages());
+                model.addAttribute("numberOfMessages", this.getMessageCount());
+                
                 return "home";
             }
-            model.addAttribute("indexPageVisibility", "active");
-            model.addAttribute("signupPageVisibility", "");
+//            model.addAttribute("indexPageVisibility", "active");
+//            model.addAttribute("signupPageVisibility", "");
             return "index";
         } catch (Exception e) {
 
             model.addAttribute("errorMessage", e.toString());
-            model.addAttribute("indexPageVisibility", "active");
-            model.addAttribute("signupPageVisibility", "");
+//            model.addAttribute("indexPageVisibility", "active");
+//            model.addAttribute("signupPageVisibility", "");
             return "index";
         }
     }
@@ -50,23 +53,25 @@ public class Index {
             if (this.isValid(username, password, request, model)) {
 
                 model.addAttribute("errorMessage", "");
-                model.addAttribute("indexPageVisibility", "active");
-                model.addAttribute("signupPageVisibility", "");
+//                model.addAttribute("indexPageVisibility", "active");
+//                model.addAttribute("signupPageVisibility", "");
 
                 model.addAttribute("resultSet", this.getResultSet(0, 6));
+                model.addAttribute("messageResultSet", this.getMessages());
+                model.addAttribute("numberOfMessages", this.getMessageCount());
 
                 return "home";
             } else {
 
-                model.addAttribute("indexPageVisibility", "active");
-                model.addAttribute("signupPageVisibility", "");
+//                model.addAttribute("indexPageVisibility", "active");
+//                model.addAttribute("signupPageVisibility", "");
                 return "index";
             }
         } catch (Exception e) {
 
             model.addAttribute("errorMessage", e.toString());
-            model.addAttribute("indexPageVisibility", "active");
-            model.addAttribute("signupPageVisibility", "");
+//            model.addAttribute("indexPageVisibility", "active");
+//            model.addAttribute("signupPageVisibility", "");
             return "index";
         }
     }
@@ -97,7 +102,9 @@ public class Index {
                 message = dateFormat.format(date) + "::[/])):" + message + "<%(#%#)*/*>" + resultSet.getString("messages_text");
                 sql = "UPDATE messages SET messages_text='"
                         + message
-                        + "' WHERE sender_id='"
+                        + "', last_edited='"
+                        + dateFormat.format(date)
+                        + "', seen='N', WHERE sender_id='"
                         + userInformation.getU_id()
                         + "' AND receiver_id='"
                         + receiverID
@@ -105,9 +112,11 @@ public class Index {
             } else {
 
                 message = dateFormat.format(date) + "::[/])):" + message;
-                sql = "INSERT INTO messages (sender_id, receiver_id, messages_text) VALUES ('"
+                sql = "INSERT INTO messages (sender_id, receiver_id, last_edited, messages_text) "
+                        + "VALUES ('"
                         + userInformation.getU_id() + "', '"
                         + receiverID + "', '"
+                        + dateFormat.format(date) + "', '"
                         + message + "')";
             }
 
@@ -119,6 +128,52 @@ public class Index {
 
             model.addAttribute("errorMessage", e.toString());
             return "index";
+        }
+    }
+
+    private int getMessageCount() {
+
+        try {
+
+            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+
+            String sql = "SELECT COUNT(*) AS numbers FROM messages, user_info WHERE (receiver_id='"
+                    + userInformation.getU_id()
+                    + "' AND seen='N' AND messages.sender_id=user_info.u_id)";
+
+            int numberOfMessages = 0;
+            ResultSet resultSet = connectToDatabase.getResult(sql);
+
+            if (resultSet.next()) {
+
+                numberOfMessages = Integer.parseInt(resultSet.getString("numbers"));
+            }
+
+            return numberOfMessages;
+        } catch (Exception e) {
+
+            return 0;
+        }
+    }
+
+    private ResultSet getMessages() {
+
+        try {
+
+            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+
+            String sql = "SELECT messages.sender_id, messages.receiver_id, user_info.name "
+                    + "FROM messages, user_info WHERE (receiver_id='"
+                    + userInformation.getU_id()
+                    + "' AND seen='N' AND messages.sender_id=user_info.u_id) "
+                    + "ORDER BY last_edited LIMIT 0,6";
+
+            return connectToDatabase.getResult(sql);
+        } catch (Exception e) {
+
+            return null;
         }
     }
 
@@ -150,14 +205,14 @@ public class Index {
         try {
 
             request.getSession().setAttribute("userInformation", null);
-            model.addAttribute("indexPageVisibility", "active");
-            model.addAttribute("signupPageVisibility", "");
+//            model.addAttribute("indexPageVisibility", "active");
+//            model.addAttribute("signupPageVisibility", "");
             return "index";
         } catch (Exception e) {
 
             model.addAttribute("errorMessage", e.toString());
-            model.addAttribute("indexPageVisibility", "active");
-            model.addAttribute("signupPageVisibility", "");
+//            model.addAttribute("indexPageVisibility", "active");
+//            model.addAttribute("signupPageVisibility", "");
             return "index";
         }
     }
@@ -174,15 +229,15 @@ public class Index {
                 return "search_places";
             } else {
 
-                model.addAttribute("indexPageVisibility", "active");
-                model.addAttribute("signupPageVisibility", "");
+//                model.addAttribute("indexPageVisibility", "active");
+//                model.addAttribute("signupPageVisibility", "");
                 return "index";
             }
         } catch (Exception e) {
 
             model.addAttribute("errorMessage", e.toString());
-            model.addAttribute("indexPageVisibility", "active");
-            model.addAttribute("signupPageVisibility", "");
+//            model.addAttribute("indexPageVisibility", "active");
+//            model.addAttribute("signupPageVisibility", "");
             return "index";
         }
     }

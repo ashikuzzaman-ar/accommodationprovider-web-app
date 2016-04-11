@@ -16,10 +16,11 @@
         </div>
         <div class="row">
             <%
-                while (resultSet.next()) {
+                while (resultSet != null && resultSet.next()) {
             %>
             <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
                 <p>
+                    Posted By:<%=resultSet.getString("u_id")%><br/>
                     <%=resultSet.getString("post_date")%><br/>
                     <%=resultSet.getString("quantity")%> - <%=resultSet.getString("type")%> <br/>
                     <%=resultSet.getString("address")%>

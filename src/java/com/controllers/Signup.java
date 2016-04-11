@@ -19,13 +19,13 @@ public class Signup {
 
         try {
 
-            model.addAttribute("indexPageVisibility", "");
-            model.addAttribute("signupPageVisibility", "active");
+//            model.addAttribute("indexPageVisibility", "");
+//            model.addAttribute("signupPageVisibility", "active");
             return "signup";
         } catch (Exception e) {
 
-            model.addAttribute("indexPageVisibility", "active");
-            model.addAttribute("signupPageVisibility", "");
+//            model.addAttribute("indexPageVisibility", "active");
+//            model.addAttribute("signupPageVisibility", "");
             return "index";
         }
     }

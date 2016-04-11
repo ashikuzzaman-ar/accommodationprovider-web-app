@@ -56,18 +56,6 @@
                                 <td>Extra Facility: </td>
                                 <td><%=resultSet.getString("provided_fasility")%></td>
                             </tr>
-                            <!--                            <tr>
-                                                            <td>
-                                                                <textarea class="" name="message" placeholder="Write your message here" rows="4" cols="20"></textarea>
-                                                            </td>
-                                                            <td>
-                                                                <button class="btn btn-primary" type="submit" name="button">
-                                                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true">
-                                                                        Send Message
-                                                                    </span>
-                                                                </button>
-                                                            </td>
-                                                        </tr>-->
                         </table>
                         <div class="container">
                             <div class="row">
@@ -75,7 +63,7 @@
                                     <textarea class="" name="message" placeholder="Write your message here" rows="4" cols="20"></textarea>
                                     <div>
                                         <button class="btn btn-primary" type="submit" name="button">
-                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true">
+                                            <span class="glyphicon glyphicon-send" aria-hidden="true">
                                                 Send Message
                                             </span>
                                         </button>

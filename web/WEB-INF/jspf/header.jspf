@@ -1,6 +1,18 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.util.GetBeans"%>
+<%@page import="com.models.UserInformation"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+
+
+<%
+    UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+    ResultSet messageResultSet = (ResultSet) request.getAttribute("messageResultSet");
+%>
+
+
 
 <html lang="en">
     <head>
@@ -53,20 +65,20 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-nb-1">
                     <ul class="nav navbar-nav">
-                        <li class="${indexPageVisibility}">
+                        <li title="Home" class="">
                             <a href="index">
                                 <span class="glyphicon glyphicon-home" aria-hidden="true">
-                                    Home
+                                    <!--Home-->
                                 </span>
                             </a>
                         </li>
                         <% if (request.getSession().getAttribute("userInformation") == null) { %>
 
 
-                        <li class="dropdown">
+                        <li title="Login" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-log-in" aria-hidden="true">
-                                    Login
+                                    <!--Login-->
                                 </span>
                             </a>
                             <div class="dropdown-menu">
@@ -88,38 +100,72 @@
                                 </form>
                             </div>
                         </li>
-                        <li class="${signupPageVisibility}">
+                        <li title="Sign Up" class="">
                             <a href="signup">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true">
-                                    Sign Up
+                                    <!--Sign Up-->
                                 </span>
                             </a>
                         </li>
-                        <li class="${aboutUsPageVisibility}">
+                        <li title="About Us" class="">
                             <a href="#">
                                 <span class="glyphicon glyphicon-modal-window" aria-hidden="true">
-                                    About Us
+                                    <!--About Us-->
                                 </span>
                             </a>
                         </li>
-                        <li class="${contactPageVisibility}">
+                        <li title="Contact" class="">
                             <a href="#">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true">
-                                    Contact
+                                    <!--Contact-->
                                 </span>
                             </a>
                         </li>
-                        <% } else { %>
+                        <% } else {%>
 
 
-                        <li class="">
+                        <li title="<%= userInformation.getName()%>" class="">
                             <a href="profile">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true">
-                                    ${userInformation.name}
+                                    <%--<%= // userInformation.getName()%>--%>
                                 </span>
                             </a>
                         </li>
-                        <li class="dropdown">
+                        <li title="Message Box" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true">
+                                    
+                                </span>
+                                <small><%= request.getAttribute("numberOfMessages")%></small>
+                            </a>
+                            <ul class="dropdown-menu dropup">
+
+                                <% if (messageResultSet != null && messageResultSet.next()) {%>
+
+                                <li class="text-capitalize">
+                                    <a style="color: green;" href="">
+                                        New Message from <%= messageResultSet.getString("name")%>
+                                    </a>
+                                </li>
+
+                                <% } else { %>
+
+                                <li><a href="#">NO new message to display!</a></li>
+
+                                <% } %>
+
+                                <hr/>
+                                <li class="text-capitalize text-center">
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-sort" aria-hidden="true">
+                                            All Messages
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li title="Sear any places here" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true">
                                     Search Places
@@ -143,23 +189,38 @@
                                 </form>
                             </div>
                         </li>
-                        <li class="">
-                            <a href="logout">
-                                <span class="glyphicon glyphicon-log-out" aria-hidden="true">
-                                    Log Out
-                                </span>
-                            </a>
-                        </li>
-                        <li class="dropdown">
+                        <!--                        <li class="">
+                                                    <a href="logout">
+                                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true">
+                                                            Log Out
+                                                        </span>
+                                                    </a>
+                                                </li>-->
+                        <li title="Option Menu" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-dashboard" aria-hidden="true">
-                                    Options
+                                <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true">
+                                    <!--Options-->
                                 </span>
-                                <span class="caret"></span>
+                                <!--<span class="caret"></span>-->
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="post_add">Post an add</a></li>
-                                <li><a href="my_posted_adds">My Posts</a></li>
+                            <ul class="dropdown-menu text-left text-capitalize">
+                                <li>
+                                    <a href="post_add">
+                                        Post an add
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="my_posted_adds">
+                                        My Posts
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="logout">
+                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true">
+                                            Log Out
+                                        </span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <% }%>
