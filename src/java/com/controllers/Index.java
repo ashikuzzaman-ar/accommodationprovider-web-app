@@ -4,6 +4,7 @@ import com.models.UserInformation;
 import com.util.ConnectToDatabase;
 import com.util.GetBeans;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -138,9 +139,9 @@ public class Index {
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
             UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
 
-            String sql = "SELECT COUNT(*) AS numbers FROM messages, user_info WHERE (receiver_id='"
+            String sql = "SELECT COUNT(*) AS numbers FROM messages WHERE (receiver_id='"
                     + userInformation.getU_id()
-                    + "' AND seen='N' AND messages.sender_id=user_info.u_id)";
+                    + "' AND seen='N')";
 
             int numberOfMessages = 0;
             ResultSet resultSet = connectToDatabase.getResult(sql);
@@ -151,7 +152,7 @@ public class Index {
             }
 
             return numberOfMessages;
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
 
             return 0;
         }

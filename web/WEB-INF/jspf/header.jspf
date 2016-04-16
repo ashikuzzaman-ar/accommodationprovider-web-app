@@ -134,13 +134,15 @@
                         <li title="Message Box" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true">
-                                    
+
                                 </span>
                                 <small><%= request.getAttribute("numberOfMessages")%></small>
                             </a>
                             <ul class="dropdown-menu dropup">
 
-                                <% if (messageResultSet != null && messageResultSet.next()) {%>
+                                <% if (messageResultSet != null) { %>
+
+                                <% while (messageResultSet.next()) {%>
 
                                 <li class="text-capitalize">
                                     <a style="color: green;" href="">
@@ -148,6 +150,7 @@
                                     </a>
                                 </li>
 
+                                <% } %>
                                 <% } else { %>
 
                                 <li><a href="#">NO new message to display!</a></li>
