@@ -60,7 +60,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12 text-center">
-                                    <textarea class="" name="message" placeholder="Write your message here" rows="4" cols="20"></textarea>
+                                    <textarea class="" name="message" placeholder="Write your message here" rows="8" cols="50"></textarea>
                                     <div>
                                         <button class="btn btn-primary" type="submit" name="button">
                                             <span class="glyphicon glyphicon-send" aria-hidden="true">
@@ -77,7 +77,6 @@
         </div>
     </div>
 </div>
-<!--<h1><%= resultSet.getString("address")%> </h1>-->
-
-
-<%}%>
+<%
+    }
+%>

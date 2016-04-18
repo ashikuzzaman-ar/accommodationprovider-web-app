@@ -4,7 +4,6 @@ import com.models.UserInformation;
 import com.util.ConnectToDatabase;
 import com.util.GetBeans;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,8 +25,8 @@ public class Index {
             if (request.getSession().getAttribute("userInformation") != null) {
 
                 model.addAttribute("resultSet", this.getResultSet(0, 6));
-                model.addAttribute("messageResultSet", this.getMessages());
-                model.addAttribute("numberOfMessages", this.getMessageCount());
+//                model.addAttribute("messageResultSet", this.getMessages());
+//                model.addAttribute("numberOfMessages", this.getMessageCount());
                 
                 return "home";
             }
@@ -58,8 +57,8 @@ public class Index {
 //                model.addAttribute("signupPageVisibility", "");
 
                 model.addAttribute("resultSet", this.getResultSet(0, 6));
-                model.addAttribute("messageResultSet", this.getMessages());
-                model.addAttribute("numberOfMessages", this.getMessageCount());
+//                model.addAttribute("messageResultSet", this.getMessages());
+//                model.addAttribute("numberOfMessages", this.getMessageCount());
 
                 return "home";
             } else {
@@ -77,106 +76,6 @@ public class Index {
         }
     }
 
-    @RequestMapping(value = "send_message", method = RequestMethod.POST)
-    protected String doPost2(Model model,
-            @RequestParam(value = "message", defaultValue = "") String message,
-            @RequestParam(value = "receiverID", defaultValue = "") String receiverID) {
-
-        try {
-
-            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-
-            DateFormat dateFormat = new SimpleDateFormat();
-            Date date = new Date();
-
-            String sql = "SELECT * FROM messages WHERE (sender_id='"
-                    + userInformation.getU_id()
-                    + "' AND receiver_id='"
-                    + receiverID
-                    + "')";
-
-            ResultSet resultSet = connectToDatabase.getResult(sql);
-
-            if (resultSet.next()) {
-
-                message = dateFormat.format(date) + "::[/])):" + message + "<%(#%#)*/*>" + resultSet.getString("messages_text");
-                sql = "UPDATE messages SET messages_text='"
-                        + message
-                        + "', last_edited='"
-                        + dateFormat.format(date)
-                        + "', seen='N', WHERE sender_id='"
-                        + userInformation.getU_id()
-                        + "' AND receiver_id='"
-                        + receiverID
-                        + "'";
-            } else {
-
-                message = dateFormat.format(date) + "::[/])):" + message;
-                sql = "INSERT INTO messages (sender_id, receiver_id, last_edited, messages_text) "
-                        + "VALUES ('"
-                        + userInformation.getU_id() + "', '"
-                        + receiverID + "', '"
-                        + dateFormat.format(date) + "', '"
-                        + message + "')";
-            }
-
-            connectToDatabase.getResult(sql);
-
-            model.addAttribute("resultSet", this.getResultSet(0, 6));
-            return "home";
-        } catch (Exception e) {
-
-            model.addAttribute("errorMessage", e.toString());
-            return "index";
-        }
-    }
-
-    private int getMessageCount() {
-
-        try {
-
-            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-
-            String sql = "SELECT COUNT(*) AS numbers FROM messages WHERE (receiver_id='"
-                    + userInformation.getU_id()
-                    + "' AND seen='N')";
-
-            int numberOfMessages = 0;
-            ResultSet resultSet = connectToDatabase.getResult(sql);
-
-            if (resultSet.next()) {
-
-                numberOfMessages = Integer.parseInt(resultSet.getString("numbers"));
-            }
-
-            return numberOfMessages;
-        } catch (SQLException | NumberFormatException e) {
-
-            return 0;
-        }
-    }
-
-    private ResultSet getMessages() {
-
-        try {
-
-            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-
-            String sql = "SELECT messages.sender_id, messages.receiver_id, user_info.name "
-                    + "FROM messages, user_info WHERE (receiver_id='"
-                    + userInformation.getU_id()
-                    + "' AND seen='N' AND messages.sender_id=user_info.u_id) "
-                    + "ORDER BY last_edited LIMIT 0,6";
-
-            return connectToDatabase.getResult(sql);
-        } catch (Exception e) {
-
-            return null;
-        }
-    }
 
     private ResultSet getResultSet(int startLimit, int endLimit) {
 

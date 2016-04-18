@@ -1,3 +1,4 @@
+<%@page import="com.models.resultsets.MessagesAndNotifications"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.util.GetBeans"%>
 <%@page import="com.models.UserInformation"%>
@@ -9,7 +10,7 @@
 
 <%
     UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-    ResultSet messageResultSet = (ResultSet) request.getAttribute("messageResultSet");
+    MessagesAndNotifications man = new MessagesAndNotifications();
 %>
 
 
@@ -127,22 +128,23 @@
                         <li title="<%= userInformation.getName()%>" class="">
                             <a href="profile">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true">
-                                    <%--<%= // userInformation.getName()%>--%>
+                                    <%= userInformation.getName().split(" ")[0] %>
                                 </span>
                             </a>
                         </li>
                         <li title="Message Box" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true">
-
                                 </span>
-                                <small><%= request.getAttribute("numberOfMessages")%></small>
+                                <small><%= man.getMessageCount()%></small>
                             </a>
                             <ul class="dropdown-menu dropup">
 
-                                <% if (messageResultSet != null) { %>
+                                <%
+                                    ResultSet messageResultSet = man.getMessages();
+                                    if (messageResultSet != null) {
 
-                                <% while (messageResultSet.next()) {%>
+                                        while (messageResultSet.next()) {%>
 
                                 <li class="text-capitalize">
                                     <a style="color: green;" href="">
@@ -150,8 +152,8 @@
                                     </a>
                                 </li>
 
-                                <% } %>
-                                <% } else { %>
+                                <%}
+                                } else { %>
 
                                 <li><a href="#">NO new message to display!</a></li>
 
@@ -159,7 +161,7 @@
 
                                 <hr/>
                                 <li class="text-capitalize text-center">
-                                    <a href="#">
+                                    <a href="messages">
                                         <span class="glyphicon glyphicon-sort" aria-hidden="true">
                                             All Messages
                                         </span>
