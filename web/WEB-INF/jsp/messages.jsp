@@ -40,13 +40,13 @@
                                                 %>
                                                 <tr>
                                                     <td>
-                                                        <label>Date: <%= inboxMessageArray[i].split("##@@!#@#")[0]%></label>
+                                                        <small>Date: <%= inboxMessageArray[i].split("##@@!#@#")[0]%></small>
                                                         <br/>
-                                                        <label><%= inboxMessageArray[i].split("##@@!#@#")[0]%></label>
+                                                        <strong><%= inboxMessageArray[i].split("##@@!#@#")[1]%></strong>
                                                         <br/>
                                                     </td>
                                                 </tr>
-                                                <% } %>
+                                                <% }%>
                                             </table>
                                         </div>
                                         <br/>
@@ -103,13 +103,13 @@
                                                 %>
                                                 <tr>
                                                     <td>
-                                                        <label>Date: <%= outboxMessageArray[i].split("##@@!#@#")[0]%></label>
+                                                        <small>Date: <%= outboxMessageArray[i].split("##@@!#@#")[0]%></small>
                                                         <br/>
-                                                        <label><%= outboxMessageArray[i].split("##@@!#@#")[0]%></label>
+                                                        <strong><%= outboxMessageArray[i].split("##@@!#@#")[1]%></strong>
                                                         <br/>
                                                     </td>
                                                 </tr>
-                                                <% } %>
+                                                <% }%>
                                             </table>
                                         </div>
                                         <br/>
