@@ -27,16 +27,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Messages {
 
     private String sql ;
-    
+    private HttpServletRequest request;
     
     @RequestMapping(value = "messages", method = RequestMethod.GET)
     protected String doGet(Model model,
             HttpServletRequest request) {
 
+        this.request = request;
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             if (request.getSession().getAttribute("userInformation") != null) {
 
@@ -83,7 +84,7 @@ public class Messages {
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             DateFormat dateFormat = new SimpleDateFormat();
             Date date = new Date();
@@ -136,7 +137,7 @@ public class Messages {
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             this.sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
                     + userInformation.getU_id()

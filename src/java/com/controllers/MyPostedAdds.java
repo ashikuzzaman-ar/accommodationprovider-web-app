@@ -25,7 +25,7 @@ public class MyPostedAdds {
                 return "index";
             } else {
 
-                UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+                UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
                 ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
                 String sql = "SELECT * FROM advertisement_info WHERE u_id='"
                         + userInformation.getU_id()

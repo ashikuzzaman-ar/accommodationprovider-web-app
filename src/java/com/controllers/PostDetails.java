@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PostDetails {
 
+    private HttpServletRequest request;
     @RequestMapping(value = "{post_id}", method = RequestMethod.GET)
     protected String doGet(Model model,
             HttpServletRequest request,
@@ -41,7 +42,7 @@ public class PostDetails {
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();

@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Index {
 
+    private HttpServletRequest request;
+    
     @RequestMapping(value = "index", method = RequestMethod.GET)
     protected String doGet(Model model, HttpServletRequest request) {
 
+        this.request = request;
         try {
 
             if (request.getSession().getAttribute("userInformation") != null) {
@@ -47,6 +50,8 @@ public class Index {
             @RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password,
             HttpServletRequest request) {
+        
+        this.request = request;
 
         try {
 
@@ -82,7 +87,7 @@ public class Index {
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             String sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
                     + userInformation.getU_id()
@@ -147,7 +152,7 @@ public class Index {
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
@@ -185,7 +190,7 @@ public class Index {
 
                 if (resultSet.next()) {
 
-                    UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+                    UserInformation userInformation = new UserInformation();
 
                     userInformation.setU_id(resultSet.getString("u_id"));
                     userInformation.setName(resultSet.getString("name"));
