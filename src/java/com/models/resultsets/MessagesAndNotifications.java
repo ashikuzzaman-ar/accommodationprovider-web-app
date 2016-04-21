@@ -17,16 +17,15 @@ import java.sql.SQLException;
  */
 public class MessagesAndNotifications {
     
-    public ResultSet getMessages() {
+    public ResultSet getMessages(String user_id) {
 
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-
+             
             String sql = "SELECT messages.sender_id, messages.receiver_id, user_info.name "
                     + "FROM messages, user_info WHERE (receiver_id='"
-                    + userInformation.getU_id()
+                    + user_id
                     + "' AND seen='N' AND messages.sender_id=user_info.u_id) "
                     + "ORDER BY last_edited LIMIT 0,6";
 
@@ -37,15 +36,14 @@ public class MessagesAndNotifications {
         }
     }
 
-    public int getMessageCount() {
+    public int getMessageCount(String user_id) {
 
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
-
+             
             String sql = "SELECT COUNT(*) AS numbers FROM messages WHERE (receiver_id='"
-                    + userInformation.getU_id()
+                    + user_id
                     + "' AND seen='N')";
 
             int numberOfMessages = 0;

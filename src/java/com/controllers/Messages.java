@@ -26,19 +26,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Messages {
 
-    private String sql ;
-    
+    private String sql ; 
+    private HttpServletRequest request;
     
     @RequestMapping(value = "messages", method = RequestMethod.GET)
     protected String doGet(Model model,
             HttpServletRequest request) {
-
+ 
+            this.request = request;
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
-            if (request.getSession().getAttribute("userInformation") != null) {
+            if ( userInformation!= null) {
 
                 this.sql = "SELECT * FROM messages, user_info WHERE (receiver_id='"
                         + userInformation.getU_id() + "' AND messages.sender_id=user_info.u_id)";
@@ -67,7 +68,6 @@ public class Messages {
     protected String doPost(Model model) {
 
         try {
-
             return null;
         } catch (Exception e) {
 
@@ -76,14 +76,15 @@ public class Messages {
     }
 
     @RequestMapping(value = "send_message", method = RequestMethod.POST)
-    protected String doPost2(Model model,
+    protected String doPost2(Model model, HttpServletRequest request,
             @RequestParam(value = "message", defaultValue = "") String message,
             @RequestParam(value = "receiverID", defaultValue = "") String receiverID) {
 
         try {
+            this.request = request;
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             DateFormat dateFormat = new SimpleDateFormat();
             Date date = new Date();
@@ -136,7 +137,7 @@ public class Messages {
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             this.sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
                     + userInformation.getU_id()

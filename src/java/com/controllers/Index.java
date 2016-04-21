@@ -25,7 +25,7 @@ public class Index {
     private String password;
     private String sql;
     private ResultSet resultSet;
-    private ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+    private final ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
     private UserInformation userInformation = new UserInformation();
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
@@ -35,6 +35,7 @@ public class Index {
         this.request = request;
         this.response = response;
 
+        this.request = request;
         try {
 
             this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
@@ -91,7 +92,7 @@ public class Index {
     private ResultSet getResultSet(int startLimit, int endLimit) {
 
         try {
-
+            
             this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
 
             this.sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
@@ -161,8 +162,8 @@ public class Index {
     private ResultSet getSearchResult(String searchKey) {
 
         try {
-
-            this.userInformation = (UserInformation)this.request.getSession().getAttribute("userInformation");
+            
+            this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
 
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
@@ -197,7 +198,7 @@ public class Index {
                         + "'" + this.username + "' AND password = '" + this.password + "'";
 
                 this.resultSet = this.connectToDatabase.getResult(this.sql);
-
+                
                 if (this.resultSet.next()) {
 
                     this.userInformation = new UserInformation();

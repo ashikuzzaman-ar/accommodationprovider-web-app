@@ -17,16 +17,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PostDetails {
 
+    private HttpServletRequest request;
     @RequestMapping(value = "{post_id}", method = RequestMethod.GET)
     protected String doGet(Model model,
             HttpServletRequest request,
             @PathVariable(value = "post_id") int post_id) {
 
+        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+
         try {
 
-            if (request.getSession().getAttribute("userInformation") != null) {
+            if (userInformation != null) {
 
-                model.addAttribute("resultSet", this.getResultSet(post_id));
+                model.addAttribute("resultSet", this.getResultSet(post_id, userInformation));
                 return "post_details";
             }
             return "index";
@@ -36,12 +39,12 @@ public class PostDetails {
         }
     }
 
-    private ResultSet getResultSet(int postID) {
+    private ResultSet getResultSet(int postID, UserInformation userInformation) {
 
         try {
 
             ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+            //UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();

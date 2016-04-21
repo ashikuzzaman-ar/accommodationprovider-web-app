@@ -17,15 +17,14 @@ public class MyPostedAdds {
     protected String doGet(Model model,
             HttpServletRequest request,
             HttpServletResponse response) {
-
+        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
         try {
 
-            if (request.getSession().getAttribute("userInformation") == null) {
+            if (userInformation == null) {
 
                 return "index";
             } else {
 
-                UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
                 ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
                 String sql = "SELECT * FROM advertisement_info WHERE u_id='"
                         + userInformation.getU_id()
