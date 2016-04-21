@@ -10,10 +10,20 @@
        
        
     
-    <bean id="connectToDatabase" class="com.util.ConnectToDatabase" init-method="initMethod" scope="singleton">
+    <bean id="connectToDatabase" class="com.util.ConnectToDatabase" init-method="" scope="singleton">
+        <property name="className" value="com.mysql.jdbc.Driver" />
+        <property name="databaseURL" value="jdbc:mysql://localhost/uiuap" /><!--127.5.20.130:3306-->
+        <property name="username" value="root" /><!--root-->
+        <property name="password" value="studevsdb" /><!--studevsdb-->
     </bean>
     
-    <bean id="userInformation" class="com.models.UserInformation" scope="singleton">
+    <bean id="userInformation" class="com.models.UserInformation" scope="prototype">
+        <property name="contact_num" value="" />
+        <property name="email" value="" />
+        <property name="gender" value="" />
+        <property name="name" value="" />
+        <property name="password" value="" />
+        <property name="u_id" value="" />
     </bean>
 
     <bean id="advertisementModel" class="com.models.AdvertisementModel" scope="singleton">

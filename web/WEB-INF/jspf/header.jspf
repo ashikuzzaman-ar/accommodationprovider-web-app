@@ -9,7 +9,7 @@
 
 
 <%
-    UserInformation userInformation = (UserInformation) GetBeans.getBean("userInformation");
+    UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
     MessagesAndNotifications man = new MessagesAndNotifications();
 %>
 
