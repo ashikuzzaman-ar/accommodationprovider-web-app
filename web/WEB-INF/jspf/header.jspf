@@ -4,17 +4,20 @@
 <%@page import="com.models.UserInformation"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 
-
+<%!
+    private UserInformation userInformation = null;
+    private MessagesAndNotifications man = null;
+    private ResultSet messageResultSet = null;
+%>
 
 <%
-    UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
-    MessagesAndNotifications man = new MessagesAndNotifications();
+    this.userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+    this.man = new MessagesAndNotifications();
 %>
 
 
-
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -73,7 +76,7 @@
                                 </span>
                             </a>
                         </li>
-                        <% if (request.getSession().getAttribute("userInformation") == null) { %>
+                        <% if (this.userInformation == null) { %>
 
 
                         <li title="Login" class="dropdown">
@@ -125,10 +128,10 @@
                         <% } else {%>
 
 
-                        <li title="<%= userInformation.getName()%>" class="">
+                        <li title="<%= this.userInformation.getName()%>" class="">
                             <a href="profile">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true">
-                                    <%= userInformation.getName().split(" ")[0] %>
+                                    <%= this.userInformation.getName().split(" ")[0]%>
                                 </span>
                             </a>
                         </li>
@@ -136,19 +139,19 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true">
                                 </span>
-                                <small><%= man.getMessageCount(userInformation.getU_id())%></small>
+                                <small><%= this.man.getMessageCount(this.userInformation.getU_id())%></small>
                             </a>
                             <ul class="dropdown-menu dropup">
 
                                 <%
-                                    ResultSet messageResultSet = man.getMessages(userInformation.getU_id());
-                                    if (messageResultSet != null) {
+                                    this.messageResultSet = this.man.getMessages(this.userInformation.getU_id());
+                                    if (this.messageResultSet != null) {
 
-                                        while (messageResultSet.next()) {%>
+                                        while (this.messageResultSet.next()) {%>
 
                                 <li class="text-capitalize">
                                     <a style="color: green;" href="">
-                                        New Message from <%= messageResultSet.getString("name")%>
+                                        New Message from <%= this.messageResultSet.getString("name")%>
                                     </a>
                                 </li>
 
