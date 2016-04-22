@@ -4,9 +4,6 @@ import com.models.UserInformation;
 import com.util.ConnectToDatabase;
 import com.util.GetBeans;
 import java.sql.ResultSet;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +38,7 @@ public class Index {
 
                 this.model.addAttribute("resultSet", this.getResultSet(0, 6));
 
-                return "home";
+                return "index";
             }
 
             return "index";
@@ -72,7 +69,7 @@ public class Index {
 
                 this.model.addAttribute("resultSet", this.getResultSet(0, 6));
 
-                return "home";
+                return "index";
             } else {
 
                 return "index";
@@ -88,12 +85,13 @@ public class Index {
 
         try {
              
-            this.sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
+            this.sql = "SELECT * FROM advertisement_info, user_info WHERE "
+                    + "(advertisement_info.u_id!='"
                     + this.userInformation.getU_id()
-                    + "' AND advertisement_info.u_id in ("
-                    + "SELECT u_id FROM user_info WHERE gender='"
+                    + "' AND advertisement_info.u_id ="
+                    + "user_info.u_id AND user_info.gender='"
                     + this.userInformation.getGender()
-                    + "')) ORDER BY post_id DESC limit "
+                    + "') ORDER BY post_id DESC limit "
                     + startLimit + ", " + endLimit;
 
             return this.connectToDatabase.getResult(this.sql);
@@ -122,6 +120,25 @@ public class Index {
         }
     }
 
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    protected String doGet1(Model model, HttpServletRequest request) {
+
+        this.model = model;
+        this.request = request;
+
+        try {
+
+            return "index";
+        } catch (Exception e) {
+
+            this.model.addAttribute("errorMessage", e.toString());
+
+            return "index";
+        }
+    }
+    
+    
+    
     @RequestMapping(value = "search", method = RequestMethod.POST)
     protected String doPost3(Model model,
             @RequestParam("search") String searchKey,
@@ -155,20 +172,26 @@ public class Index {
             
             this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
 
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = new Date();
+//            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//            Date date = new Date();
 
-            this.sql = "SELECT * FROM uiuap.advertisement_info WHERE ((advertisement_info.u_id!='"
+            this.sql = "SELECT * FROM uiuap.advertisement_info, user_info WHERE "
+                    + "((advertisement_info.u_id!='"
                     + this.userInformation.getU_id()
-                    + "' AND advertisement_info.availability='Y' AND advertisement_info.deadline>='"
-                    + dateFormat.format(date)
-                    + "' AND advertisement_info.u_id in ("
-                    + "SELECT u_id FROM uiuap.user_info WHERE gender='"
+                    + "' AND advertisement_info.availability='Y' "
+                    
+                    
+//                    + "AND advertisement_info.deadline>='"
+//                    + dateFormat.format(date)
+                    + "AND advertisement_info.u_id ="
+                    + "user_info.u_id AND user_info.gender='"
                     + this.userInformation.getGender()
-                    + "')) AND ("
+                    + "') AND ("
                     + "advertisement_info.address LIKE '%" + searchKey + "%' OR "
                     + "advertisement_info.u_id LIKE '%" + searchKey + "%' OR "
-                    + "advertisement_info.type LIKE '%" + searchKey + "%'"
+                    + "advertisement_info.title LIKE '%" + searchKey + "%' OR "
+                    + "user_info.name LIKE '%" + searchKey + "%' OR "
+                    + "advertisement_info.type LIKE '%" + searchKey + "%' "
                     + "))";
             return this.connectToDatabase.getResult(this.sql);
         } catch (Exception e) {

@@ -1,29 +1,62 @@
 <%@page import="java.sql.ResultSet"%>
 <%
     ResultSet resultSet = (ResultSet) request.getAttribute("searchResults");
-//    int rowCount = 0;
+    int rowCount = 0;
 %>
 <div class="container-fluid">
     <h1>${errorMessage}</h1>
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                <h1>Your Search Results</h1>
+    <% if (request.getSession().getAttribute("userInformation") != null) { %>
+    <% if (!resultSet.equals(null)) {%>
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <div class="intro-text text-center">
+                    <hr/>
+                    <strong class="h1">Search Result</strong>
+                    <hr/>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <%
-                while (resultSet.next()) {
-            %>
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-                <p>
-                    <%=resultSet.getString("post_date")%><br/>
-                    <%=resultSet.getString("quantity")%> - <%=resultSet.getString("type")%> <br/>
-                    <%=resultSet.getString("address")%>
-                </p>
-                <a class="btn btn-primary" href="<%=resultSet.getString("post_id")%>">Details</a>
+            <% while (resultSet.next()) {%>
+            <div class="col-lg-12">
+                <div class="box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>
+                                    <a class="" href="<%=resultSet.getString("post_id")%>">
+                                        <h2 class="text-capitalize"><%= resultSet.getString("title")%></h2>
+                                    </a>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Posted By: <%=resultSet.getString("name")%></td>
+                            </tr>
+                            <tr>
+                                <td>Address: <%=resultSet.getString("address")%></td>
+                            </tr>
+                            <tr>
+                                <td>Post Date: <%=resultSet.getString("post_date")%></td>
+                            </tr>
+                            <tr>
+                                <td><%=resultSet.getString("quantity")%> - <%=resultSet.getString("type")%></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <%}%>
+            <% rowCount++;
+                } %>
+            <% if (rowCount == 0) { %>
+            <div class="col-lg-12">
+                <div class="text-left">
+                    <strong class="h2">No Results Found</strong>
+                </div>
+            </div>
+            <% } %>
         </div>
     </div>
+    <% } %>
+    <% }%>
 </div>

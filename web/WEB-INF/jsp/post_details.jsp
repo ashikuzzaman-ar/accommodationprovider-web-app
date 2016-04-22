@@ -11,51 +11,49 @@
                 <form action="send_message" method="POST">
                     <div class="table-responsive">
                         <table class="table table-striped">
-                            <tr>
-                                <td>Poster ID: </td>
-                                <td><%=resultSet.getString("u_id")%></td>
+                            <thead class="text-left h1">
+                                <tr>
+                                    <td>
+                                        <h1 class="text-capitalize text-success"><%=resultSet.getString("title")%></h1>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody class="text-left h2">
+                                <tr>
+                                    <td>Poster ID: <%=resultSet.getString("u_id")%></td>
                             <input type="hidden" name="receiverID" value="<%=resultSet.getString("u_id")%>" />
                             </tr>
                             <tr>
-                                <td>Post ID: </td>
-                                <td><%=resultSet.getString("post_id")%></td>
+                                <td>Post ID: <%=resultSet.getString("post_id")%></td>
                             </tr>
                             <tr>
-                                <td>Post Date: </td>
-                                <td><%=resultSet.getString("post_date")%></td>
+                                <td>Post Date: <%=resultSet.getString("post_date")%></td>
                             </tr>
                             <tr>
-                                <td>Type: </td>
-                                <td><%=resultSet.getString("type")%></td>
+                                <td>Type: <%=resultSet.getString("type")%></td>
                             </tr>
                             <tr>
-                                <td>Quantity: </td>
-                                <td><%=resultSet.getString("quantity")%></td>
+                                <td>Quantity: <%=resultSet.getString("quantity")%></td>
                             </tr>
                             <tr>
-                                <td>Deadline: </td>
-                                <td><%=resultSet.getString("deadline")%></td>
+                                <td>Deadline: <%=resultSet.getString("deadline")%></td>
                             </tr>
                             <tr>
-                                <td>Availability: </td>
-                                <td><%=resultSet.getString("availability")%></td>
+                                <td>Availability: <%=resultSet.getString("availability")%></td>
                             </tr>
                             <tr>
-                                <td>House Rent: </td>
-                                <td><%=resultSet.getString("house_rent")%></td>
+                                <td>House Rent: <%=resultSet.getString("house_rent")%></td>
                             </tr>
                             <tr>
-                                <td>Utility Cost: </td>
-                                <td><%=resultSet.getString("utility_cost")%></td>
+                                <td>Utility Cost: <%=resultSet.getString("utility_cost")%></td>
                             </tr>
                             <tr>
-                                <td>Address: </td>
-                                <td><%=resultSet.getString("address")%></td>
+                                <td>Address: <%=resultSet.getString("address")%></td>
                             </tr>
                             <tr>
-                                <td>Extra Facility: </td>
-                                <td><%=resultSet.getString("provided_fasility")%></td>
+                                <td>Extra Facility: <%=resultSet.getString("provided_fasility")%></td>
                             </tr>
+                            </tbody>
                         </table>
                         <div class="container">
                             <div class="row">
