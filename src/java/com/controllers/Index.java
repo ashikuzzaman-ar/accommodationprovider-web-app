@@ -44,8 +44,6 @@ public class Index {
             return "index";
         } catch (Exception e) {
 
-            this.model.addAttribute("errorMessage", e.toString());
-
             return "index";
         }
     }
@@ -76,7 +74,6 @@ public class Index {
             }
         } catch (Exception e) {
 
-            this.model.addAttribute("errorMessage", e.toString());
             return "index";
         }
     }
@@ -131,8 +128,6 @@ public class Index {
             return "index";
         } catch (Exception e) {
 
-            this.model.addAttribute("errorMessage", e.toString());
-
             return "index";
         }
     }
@@ -160,8 +155,6 @@ public class Index {
             }
         } catch (Exception e) {
 
-            this.model.addAttribute("errorMessage", e.toString());
-
             return "index";
         }
     }
@@ -172,17 +165,10 @@ public class Index {
             
             this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
 
-//            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//            Date date = new Date();
-
             this.sql = "SELECT * FROM uiuap.advertisement_info, user_info WHERE "
                     + "((advertisement_info.u_id!='"
                     + this.userInformation.getU_id()
                     + "' AND advertisement_info.availability='Y' "
-                    
-                    
-//                    + "AND advertisement_info.deadline>='"
-//                    + dateFormat.format(date)
                     + "AND advertisement_info.u_id ="
                     + "user_info.u_id AND user_info.gender='"
                     + this.userInformation.getGender()
@@ -193,10 +179,10 @@ public class Index {
                     + "user_info.name LIKE '%" + searchKey + "%' OR "
                     + "advertisement_info.type LIKE '%" + searchKey + "%' "
                     + "))";
+
             return this.connectToDatabase.getResult(this.sql);
         } catch (Exception e) {
 
-            this.model.addAttribute("errorMessage", e.toString());
             return null;
         }
     }
@@ -224,12 +210,13 @@ public class Index {
                     this.userInformation.setGender(this.resultSet.getString("gender"));
 
                     this.request.getSession().setAttribute("userInformation", this.userInformation);
-                    this.model.addAttribute("errorMessage", "");
+
                     return true;
                 } else {
 
                     this.request.getSession().setAttribute("userInformation", null);
                     this.model.addAttribute("errorMessage", "Username or Password does not match!");
+                    
                     return false;
                 }
 
@@ -237,12 +224,13 @@ public class Index {
 
                 this.request.getSession().setAttribute("userInformation", null);
                 this.model.addAttribute("errorMessage", "Username or Password is empty or containing white spaces!");
+                
                 return false;
             }
         } catch (Exception e) {
 
-            this.model.addAttribute("errorMessage", e.toString());
             this.request.getSession().setAttribute("userInformation", null);
+
             return false;
         }
     }

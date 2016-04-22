@@ -26,32 +26,39 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Messages {
 
-    private String sql ; 
+    private String sql;
     private HttpServletRequest request;
-    
+    private Model model;
+    private UserInformation userInformation;
+    private final ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+    private ResultSet resultSet;
+    private String receiverID;
+
     @RequestMapping(value = "messages", method = RequestMethod.GET)
-    protected String doGet(Model model,
-            HttpServletRequest request) {
- 
-            this.request = request;
+    protected String doGet(Model model, HttpServletRequest request) {
+
+        this.request = request;
+        this.model = model;
+
         try {
 
-            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+            this.userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
-            if ( userInformation!= null) {
+            if (this.userInformation != null) {
 
                 this.sql = "SELECT * FROM messages, user_info WHERE (receiver_id='"
-                        + userInformation.getU_id() + "' AND messages.sender_id=user_info.u_id)";
+                        + this.userInformation.getU_id()
+                        + "' AND messages.sender_id=user_info.u_id)";
 
-                ResultSet resultSet1 = connectToDatabase.getResult(sql);
-                model.addAttribute("inboxMessages", resultSet1);
+                this.resultSet = this.connectToDatabase.getResult(this.sql);
+                this.model.addAttribute("inboxMessages", this.resultSet);
 
                 this.sql = "SELECT * FROM messages, user_info WHERE (sender_id='"
-                        + userInformation.getU_id() + "' AND messages.receiver_id=user_info.u_id)";
+                        + this.userInformation.getU_id()
+                        + "' AND messages.receiver_id=user_info.u_id)";
 
-                ResultSet resultSet2 = connectToDatabase.getResult(this.sql);
-                model.addAttribute("outboxMessages", resultSet2);
+                this.resultSet = this.connectToDatabase.getResult(this.sql);
+                model.addAttribute("outboxMessages", this.resultSet);
 
                 return "messages";
             } else {
@@ -67,61 +74,69 @@ public class Messages {
     @RequestMapping(value = "messages", method = RequestMethod.POST)
     protected String doPost(Model model) {
 
+        this.model = model;
+
         try {
-            return null;
+
+            return "index";
         } catch (Exception e) {
 
-            return null;
+            return "index";
         }
     }
 
     @RequestMapping(value = "send_message", method = RequestMethod.POST)
-    protected String doPost2(Model model, HttpServletRequest request,
+    protected String doPost2(Model model,
+            HttpServletRequest request,
             @RequestParam(value = "message", defaultValue = "") String message,
             @RequestParam(value = "receiverID", defaultValue = "") String receiverID) {
 
-        try {
-            this.request = request;
+        this.request = request;
+        this.model = model;
+        this.receiverID = receiverID;
 
-            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+        try {
+
+            this.userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             DateFormat dateFormat = new SimpleDateFormat();
             Date date = new Date();
 
             this.sql = "SELECT * FROM messages WHERE (sender_id='"
-                    + userInformation.getU_id()
+                    + this.userInformation.getU_id()
                     + "' AND receiver_id='"
-                    + receiverID
+                    + this.receiverID
                     + "')";
 
-            ResultSet resultSet = connectToDatabase.getResult(this.sql);
+            this.resultSet = this.connectToDatabase.getResult(this.sql);
 
-            if (resultSet.next()) {
+            if (this.resultSet.next()) {
 
-                message = (String) dateFormat.format(date) + "##@@!#@#" + message + "##@@!!#@#" + resultSet.getString("messages_text");
+                message = (String) dateFormat.format(date) + "##@@!#@#" + message
+                        + "##@@!!#@#" + this.resultSet.getString("messages_text");
+
                 this.sql = "UPDATE messages SET messages_text='"
                         + message
                         + "', last_edited='"
                         + dateFormat.format(date)
                         + "', seen='N' WHERE (sender_id='"
-                        + userInformation.getU_id()
+                        + this.userInformation.getU_id()
                         + "' AND receiver_id='"
-                        + receiverID
+                        + this.receiverID
                         + "')";
             } else {
 
                 message = (String) dateFormat.format(date) + "##@@!#@#" + message + "##@@!!#@#";
                 this.sql = "INSERT INTO messages (sender_id, receiver_id, seen, last_edited, messages_text) "
                         + "VALUES ('"
-                        + userInformation.getU_id() + "', '"
-                        + receiverID + "', '"
+                        + this.userInformation.getU_id() + "', '"
+                        + this.receiverID + "', '"
                         + "N', '"
                         + dateFormat.format(date) + "', '"
                         + message + "')";
             }
 
-            connectToDatabase.getResult(this.sql);
+            this.connectToDatabase.getResult(this.sql);
 
             model.addAttribute("resultSet", this.getResultSet(0, 6));
             return "index";
@@ -136,18 +151,16 @@ public class Messages {
 
         try {
 
-            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
-
-            this.sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
-                    + userInformation.getU_id()
-                    + "' AND advertisement_info.u_id in ("
-                    + "SELECT u_id FROM uiuap.user_info WHERE gender='"
-                    + userInformation.getGender()
-                    + "')) ORDER BY post_id DESC limit "
+            this.sql = "SELECT * FROM advertisement_info, user_info WHERE "
+                    + "(advertisement_info.u_id!='"
+                    + this.userInformation.getU_id()
+                    + "' AND advertisement_info.u_id ="
+                    + "user_info.u_id AND user_info.gender='"
+                    + this.userInformation.getGender()
+                    + "') ORDER BY post_id DESC limit "
                     + startLimit + ", " + endLimit;
 
-            return connectToDatabase.getResult(this.sql);
+            return this.connectToDatabase.getResult(this.sql);
         } catch (Exception e) {
 
             return null;

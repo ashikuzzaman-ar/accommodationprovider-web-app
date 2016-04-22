@@ -54,7 +54,7 @@
                     House - 80, Road - 8/A | Satmasjid Road | Dhanmondi, Dhaka-1209 | Bangladesh
                 </div>-->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
+            <div class="container-fluid nav-col">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nb-1" aria-expanded="false">
@@ -173,36 +173,40 @@
 
                             </ul>
                         </li>
-                        <li title="Sear any places here" class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true">
-                                    Search Places
-                                </span>
-                            </a>
-                            <div class="dropdown-menu">
-                                <!--Index.java controller-->
-                                <form class="navbar-form navbar-left" action="search" method="POST">
-                                    <div class="form-group form-group-lg">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <input name="search" type="text" class="form-control" placeholder="Search" value="" />
-                                                </td>
-                                                <td>
-                                                    <input type="submit" class="btn btn-primary" value="Go" name="button" />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </form>
-                            </div>
+                        <li title="Sear any places here" class="">
+                            <!--Index.java controller-->
+                            <form class="navbar-form navbar-left" action="search" method="POST">
+                                <div class="form-group form-group-lg search-box-position">
+                                    <input name="search" type="text" class="form-control" placeholder="Search" value="" />
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true">
+                                    </span>
+                                    <input type="submit" class="hidden" value="" name="button" />
+                                </div>
+                            </form>
                         </li>
-                        <!--                        <li class="">
-                                                    <a href="logout">
-                                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true">
-                                                            Log Out
+                        <!--                        <li title="Sear any places here" class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="glyphicon glyphicon-search" aria-hidden="true">
+                                                            Search Places
                                                         </span>
                                                     </a>
+                                                    <div class="dropdown-menu">
+                                                        Index.java controller
+                                                        <form class="navbar-form navbar-left" action="search" method="POST">
+                                                            <div class="form-group form-group-lg">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input name="search" type="text" class="form-control" placeholder="Search" value="" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="submit" class="btn btn-primary" value="Go" name="button" />
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </form>
+                                                    </div>
                                                 </li>-->
                         <li title="Option Menu" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
