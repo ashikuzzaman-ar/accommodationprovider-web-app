@@ -24,6 +24,14 @@
                 </div>
                 <div class="row form-padding">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="label label-success">Title</span>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <input required="true" id="title" onkeyup="checkNull('title')" class="form-control" type="text" name="title" placeholder="Title" />
+                    </div>
+                </div>
+                <div class="row form-padding">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <span class="label label-success">Address</span>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">

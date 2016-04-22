@@ -92,9 +92,7 @@ public class Index {
     private ResultSet getResultSet(int startLimit, int endLimit) {
 
         try {
-            
-            this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
-
+             
             this.sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
                     + this.userInformation.getU_id()
                     + "' AND advertisement_info.u_id in ("

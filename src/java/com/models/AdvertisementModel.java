@@ -10,7 +10,16 @@ public class AdvertisementModel {
     private String rent;
     private String utility;
     private String facility;
-    private int postID ;
+    private String title;
+    private int postID;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public int getPostID() {
         return postID;
@@ -94,6 +103,7 @@ public class AdvertisementModel {
             this.setDeadline(null);
             this.setRent(null);
             this.setUtility(null);
+            this.setTitle(null);
             this.setFacility(null);
         } catch (Exception e) {
         }

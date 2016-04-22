@@ -58,10 +58,11 @@ public class PostAdd {
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 Date date = new Date();
                 
-                String sql = "INSERT INTO advertisement_info (u_id, address, type, quantity, "
+                String sql = "INSERT INTO advertisement_info (u_id, title, address, type, quantity, "
                         + "deadline, availability, house_rent, utility_cost, provided_fasility, post_date) "
                         + "VALUES ("
                         + "'" + advertisementModel.getPosterID() + "', "
+                        + "'" + advertisementModel.getTitle() + "', "
                         + "'" + advertisementModel.getAdress() + "', "
                         + "'" + advertisementModel.getType() + "', "
                         + "'" + advertisementModel.getVacancy() + "', "
