@@ -14,18 +14,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class Signup {
 
+    private Model model;
+    private HttpServletRequest request;
+    private final ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+    private String sql;
+    
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     protected String doGet(Model model, HttpServletRequest request) {
 
+        this.model = model;
+        this.request = request;
+        
         try {
 
-//            model.addAttribute("indexPageVisibility", "");
-//            model.addAttribute("signupPageVisibility", "active");
             return "signup";
         } catch (Exception e) {
 
-//            model.addAttribute("indexPageVisibility", "active");
-//            model.addAttribute("signupPageVisibility", "");
             return "index";
         }
     }
@@ -33,13 +37,18 @@ public class Signup {
     @RequestMapping(value = "signup", method = RequestMethod.POST)
     protected String doPost(Model model,
             @ModelAttribute UserInformation userInformation,
-            BindingResult userInformationResult) {
+            BindingResult userInformationResult,
+            HttpServletRequest request) {
 
+        
+        this.model = model;
+        this.request = request;
+        
         try {
 
             if (!userInformationResult.hasErrors()) {
 
-                String sql = "INSERT INTO user_info (u_id, name, password, email, contact_num, "
+                this.sql = "INSERT INTO user_info (u_id, name, password, email, contact_num, "
                         + "gender) VALUES ("
                         + "'" + userInformation.getU_id() + "', "
                         + "'" + userInformation.getName() + "', "
@@ -49,13 +58,12 @@ public class Signup {
                         + "'" + userInformation.getGender() + "'"
                         + ")";
                 
-                ConnectToDatabase connectToDatabase = (ConnectToDatabase)GetBeans.getBean("connectToDatabase");
-                connectToDatabase.getResult(sql);
+                this.connectToDatabase.getResult(this.sql);
                 userInformation.setNull();
-                model.addAttribute("errorMessage", "Congratulation! Now Login please.");
+                this.model.addAttribute("errorMessage", "Congratulation! Now Login please.");
             } else {
 
-                model.addAttribute("errorMessage", userInformationResult.getAllErrors().toString());
+                this.model.addAttribute("errorMessage", userInformationResult.getAllErrors().toString());
             }
             return "index";
         } catch (Exception e) {

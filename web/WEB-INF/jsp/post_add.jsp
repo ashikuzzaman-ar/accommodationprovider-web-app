@@ -22,6 +22,7 @@
                         <input required="true" id="posterID" class="form-control" type="text" name="posterID" value="${userInformation.u_id}" readonly="readonly" />
                     </div>
                 </div>
+                    
                 <div class="row form-padding">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <span class="label label-success">Title</span>

@@ -8,7 +8,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,6 @@ public class Index {
 
     private Model model;
     private HttpServletRequest request;
-    private HttpServletResponse response;
     private String username;
     private String password;
     private String sql;
@@ -29,11 +27,10 @@ public class Index {
     private UserInformation userInformation = new UserInformation();
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
-    protected String doGet(Model model, HttpServletRequest request, HttpServletResponse response) {
+    protected String doGet(Model model, HttpServletRequest request) {
 
         this.model = model;
         this.request = request;
-        this.response = response;
 
         this.request = request;
         try {
@@ -60,12 +57,10 @@ public class Index {
     protected String doPost1(Model model,
             @RequestParam(value = "username") String username,
             @RequestParam(value = "password") String password,
-            HttpServletRequest request,
-            HttpServletResponse response) {
+            HttpServletRequest request) {
 
         this.model = model;
         this.request = request;
-        this.response = response;
         this.username = username;
         this.password = password;
 
@@ -96,7 +91,7 @@ public class Index {
             this.sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
                     + this.userInformation.getU_id()
                     + "' AND advertisement_info.u_id in ("
-                    + "SELECT u_id FROM uiuap.user_info WHERE gender='"
+                    + "SELECT u_id FROM user_info WHERE gender='"
                     + this.userInformation.getGender()
                     + "')) ORDER BY post_id DESC limit "
                     + startLimit + ", " + endLimit;
@@ -109,11 +104,10 @@ public class Index {
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
-    protected String doGet2(Model model, HttpServletRequest request, HttpServletResponse response) {
+    protected String doGet2(Model model, HttpServletRequest request) {
 
         this.model = model;
         this.request = request;
-        this.response = response;
 
         try {
 
@@ -131,12 +125,10 @@ public class Index {
     @RequestMapping(value = "search", method = RequestMethod.POST)
     protected String doPost3(Model model,
             @RequestParam("search") String searchKey,
-            HttpServletRequest request,
-            HttpServletResponse response) {
+            HttpServletRequest request) {
 
         this.model = model;
         this.request = request;
-        this.response = response;
 
         try {
 

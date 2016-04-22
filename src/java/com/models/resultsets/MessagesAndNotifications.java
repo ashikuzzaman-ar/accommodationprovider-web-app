@@ -5,7 +5,6 @@
  */
 package com.models.resultsets;
 
-import com.models.UserInformation;
 import com.util.ConnectToDatabase;
 import com.util.GetBeans;
 import java.sql.ResultSet;
