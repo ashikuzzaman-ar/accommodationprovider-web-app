@@ -50,8 +50,8 @@ public class Index {
 
     @RequestMapping(value = "index", method = RequestMethod.POST)
     protected String doPost1(Model model,
-            @RequestParam(value = "username") String username,
-            @RequestParam(value = "password") String password,
+            @RequestParam(value = "username", defaultValue = "") String username,
+            @RequestParam(value = "password", defaultValue = "") String password,
             HttpServletRequest request) {
 
         this.model = model;

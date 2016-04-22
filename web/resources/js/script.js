@@ -2,7 +2,7 @@ function checkNull(id) {
 
     if (document.getElementById(id).value.trim() === "") {
 
-        document.getElementById(id).style.backgroundColor = "red";
+        document.getElementById(id).style.backgroundColor = "yellow";
         return false;
     } else {
 
@@ -21,7 +21,7 @@ function robotAccessTesting(id1, id2){
             return true;
         }else{
             
-            document.getElementById(id1).style.backgroundColor = "red";
+            document.getElementById(id1).style.backgroundColor = "yellow";
             return false;
         }
     }else{
@@ -39,7 +39,7 @@ function passwordMatching(id1, id2) {
             document.getElementById(id1).style.backgroundColor = "greenyellow";
             return true;
         } else {
-            document.getElementById(id1).style.backgroundColor = "red";
+            document.getElementById(id1).style.backgroundColor = "yellow";
             return false;
         }
     } else {

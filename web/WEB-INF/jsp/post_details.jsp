@@ -58,9 +58,11 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12 text-center">
-                                    <textarea class="" name="message" placeholder="Write your message here" rows="8" cols="50"></textarea>
+                                    <textarea class="" name="message" placeholder="Write your message here" rows="6" cols="50"></textarea>
+                                    <br/>
+                                    <br/>
                                     <div>
-                                        <button class="btn btn-primary" type="submit" name="button">
+                                        <button class="btn btn-primary btn-lg" type="submit" name="button">
                                             <span class="glyphicon glyphicon-send" aria-hidden="true">
                                                 Send Message
                                             </span>

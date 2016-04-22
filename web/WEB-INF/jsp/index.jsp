@@ -56,15 +56,6 @@
                         <span class="icon-next"></span>
                     </a>
                 </div>
-                <!--                <h2 class="brand-before">
-                                    <small>Welcome to</small>
-                                </h2>
-                                <h1 class="brand-name">UIU Accommodation Provider</h1>
-                                <hr class="tagline-divider">
-                                <h2>
-                                    <small>Powered By :</small>
-                                    <strong>Social Services Club</strong>
-                                </h2>-->
             </div>
         </div>
     </div>
