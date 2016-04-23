@@ -72,9 +72,10 @@ public class Messages {
     }
 
     @RequestMapping(value = "messages", method = RequestMethod.POST)
-    protected String doPost(Model model) {
+    protected String doPost(Model model, HttpServletRequest request) {
 
         this.model = model;
+        this.request = request;
 
         try {
 

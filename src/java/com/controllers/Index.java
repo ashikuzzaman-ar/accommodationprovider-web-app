@@ -28,8 +28,8 @@ public class Index {
 
         this.model = model;
         this.request = request;
-
         this.request = request;
+
         try {
 
             this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
@@ -81,7 +81,7 @@ public class Index {
     private ResultSet getResultSet(int startLimit, int endLimit) {
 
         try {
-             
+
             this.sql = "SELECT * FROM advertisement_info, user_info WHERE "
                     + "(advertisement_info.u_id!='"
                     + this.userInformation.getU_id()
@@ -131,9 +131,7 @@ public class Index {
             return "index";
         }
     }
-    
-    
-    
+
     @RequestMapping(value = "search", method = RequestMethod.POST)
     protected String doPost3(Model model,
             @RequestParam("search") String searchKey,
@@ -162,7 +160,7 @@ public class Index {
     private ResultSet getSearchResult(String searchKey) {
 
         try {
-            
+
             this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
 
             this.sql = "SELECT * FROM uiuap.advertisement_info, user_info WHERE "
@@ -197,7 +195,7 @@ public class Index {
                         + "'" + this.username + "' AND password = '" + this.password + "'";
 
                 this.resultSet = this.connectToDatabase.getResult(this.sql);
-                
+
                 if (this.resultSet.next()) {
 
                     this.userInformation = new UserInformation();
@@ -216,7 +214,7 @@ public class Index {
 
                     this.request.getSession().setAttribute("userInformation", null);
                     this.model.addAttribute("errorMessage", "Username or Password does not match!");
-                    
+
                     return false;
                 }
 
@@ -224,7 +222,7 @@ public class Index {
 
                 this.request.getSession().setAttribute("userInformation", null);
                 this.model.addAttribute("errorMessage", "Username or Password is empty or containing white spaces!");
-                
+
                 return false;
             }
         } catch (Exception e) {

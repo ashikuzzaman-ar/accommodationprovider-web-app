@@ -1,3 +1,13 @@
+function changeDisability(id) {
+
+    document.getElementById(id).disabled = !(document.getElementById(id).disabled);
+}
+
+function setEditableTextField(id) {
+
+    document.getElementById(id).disabled = false;
+}
+
 function checkNull(id) {
 
     if (document.getElementById(id).value.trim() === "") {
@@ -11,21 +21,21 @@ function checkNull(id) {
     }
 }
 
-function robotAccessTesting(id1, id2){
-    
-    if(checkNull(id1)){
-        
-        if(document.getElementById(id1).value===document.getElementById(id2).value){
-            
+function robotAccessTesting(id1, id2) {
+
+    if (checkNull(id1)) {
+
+        if (document.getElementById(id1).value === document.getElementById(id2).value) {
+
             document.getElementById(id1).style.backgroundColor = "greenyellow";
             return true;
-        }else{
-            
+        } else {
+
             document.getElementById(id1).style.backgroundColor = "yellow";
             return false;
         }
-    }else{
-        
+    } else {
+
         return false;
     }
 }

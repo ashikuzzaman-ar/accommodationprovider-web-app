@@ -17,21 +17,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PostDetails {
 
+    private Model model;
     private HttpServletRequest request;
+    private UserInformation userInformation;
+    private final ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
+    private String sql;
+
     @RequestMapping(value = "{post_id}", method = RequestMethod.GET)
     protected String doGet(Model model,
             HttpServletRequest request,
             @PathVariable(value = "post_id") int post_id) {
 
-        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+        this.model = model;
+        this.request = request;
+        this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
 
         try {
 
-            if (userInformation != null) {
+            if (this.userInformation != null) {
 
-                model.addAttribute("resultSet", this.getResultSet(post_id, userInformation));
+                this.model.addAttribute("resultSet", this.getResultSet(post_id));
+
                 return "post_details";
             }
+
             return "index";
         } catch (Exception e) {
 
@@ -39,28 +48,25 @@ public class PostDetails {
         }
     }
 
-    private ResultSet getResultSet(int postID, UserInformation userInformation) {
+    private ResultSet getResultSet(int postID) {
 
         try {
-
-            ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
-            //UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
 
-            String sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
-                    + userInformation.getU_id()
+            this.sql = "SELECT * FROM uiuap.advertisement_info WHERE (advertisement_info.u_id!='"
+                    + this.userInformation.getU_id()
                     + "' AND advertisement_info.availability='Y' AND advertisement_info.deadline>='"
                     + dateFormat.format(date)
                     + "' AND advertisement_info.post_id="
                     + postID
                     + " AND advertisement_info.u_id in ("
                     + "SELECT u_id FROM uiuap.user_info WHERE gender='"
-                    + userInformation.getGender()
+                    + this.userInformation.getGender()
                     + "'))";
 
-            return connectToDatabase.getResult(sql);
+            return this.connectToDatabase.getResult(this.sql);
         } catch (Exception e) {
 
             return null;

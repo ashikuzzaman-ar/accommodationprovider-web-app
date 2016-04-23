@@ -70,10 +70,11 @@ public class Profile {
         this.request = request;
 
         try {
+            
+            this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
 
-            if (this.request.getSession().getAttribute("userInformation") != null) {
+            if (this.userInformation != null) {
 
-                this.userInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
                 this.sql = "UPDATE user_info SET password = '"
                         + newPassword
                         + "' WHERE u_id = '"

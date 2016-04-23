@@ -18,13 +18,13 @@ public class Signup {
     private HttpServletRequest request;
     private final ConnectToDatabase connectToDatabase = (ConnectToDatabase) GetBeans.getBean("connectToDatabase");
     private String sql;
-    
+
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     protected String doGet(Model model, HttpServletRequest request) {
 
         this.model = model;
         this.request = request;
-        
+
         try {
 
             return "signup";
@@ -40,10 +40,9 @@ public class Signup {
             BindingResult userInformationResult,
             HttpServletRequest request) {
 
-        
         this.model = model;
         this.request = request;
-        
+
         try {
 
             if (!userInformationResult.hasErrors()) {
@@ -57,7 +56,7 @@ public class Signup {
                         + "'" + userInformation.getContact_num() + "', "
                         + "'" + userInformation.getGender() + "'"
                         + ")";
-                
+
                 this.connectToDatabase.getResult(this.sql);
                 userInformation.setNull();
                 this.model.addAttribute("errorMessage", "Congratulation! Now Login please.");
@@ -65,6 +64,49 @@ public class Signup {
 
                 this.model.addAttribute("errorMessage", userInformationResult.getAllErrors().toString());
             }
+            return "index";
+        } catch (Exception e) {
+
+            return "index";
+        }
+    }
+
+    @RequestMapping(value = "update_profile", method = RequestMethod.POST)
+    protected String doPost1(Model model,
+            @ModelAttribute UserInformation userInformation,
+            BindingResult userInformationResult,
+            HttpServletRequest request) {
+
+        this.model = model;
+        this.request = request;
+
+        UserInformation presentUserInformation = (UserInformation) this.request.getSession().getAttribute("userInformation");
+
+        try {
+
+            boolean isValidUser = (presentUserInformation != null) && presentUserInformation.getU_id().equals(userInformation.getU_id());
+
+            if (!userInformationResult.hasErrors() && isValidUser) {
+
+                this.sql = "UPDATE user_info SET "
+                        + "name = '" + userInformation.getName() + "', "
+                        + "email = '" + userInformation.getEmail() + "', "
+                        + "contact_num = '" + userInformation.getContact_num() + "' "
+                        + "WHERE u_id = '" + userInformation.getU_id() + "'";
+
+                this.connectToDatabase.getResult(this.sql);
+
+                userInformation.setPassword(presentUserInformation.getPassword());
+
+                this.request.getSession().setAttribute("userInformation", userInformation);
+                presentUserInformation.setNull();
+                
+                this.model.addAttribute("errorMessage", "Congratulation! Now Login please.");
+            } else {
+
+                this.model.addAttribute("errorMessage", userInformationResult.getAllErrors().toString());
+            }
+
             return "index";
         } catch (Exception e) {
 
