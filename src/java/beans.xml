@@ -10,11 +10,7 @@
        
        
     
-    <bean id="connectToDatabase" class="com.util.ConnectToDatabase" init-method="" scope="singleton">
-        <property name="className" value="com.mysql.jdbc.Driver" />
-        <property name="databaseURL" value="jdbc:mysql://localhost/uiuap" /><!--127.5.20.130:3306-->
-        <property name="username" value="root" /><!--root-->
-        <property name="password" value="studevsdb" /><!--studevsdb -->
+    <bean id="connectToDatabase" class="com.util.ConnectToDatabase" init-method="initMethod" scope="singleton">
     </bean>
     
     <bean id="userInformation" class="com.models.UserInformation" scope="prototype">

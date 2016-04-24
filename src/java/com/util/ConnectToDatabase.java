@@ -22,20 +22,18 @@ public class ConnectToDatabase {
         return expections;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
-    }
+    private void initMethod() {
 
-    public void setDatabaseURL(String databaseURL) {
-        this.databaseURL = databaseURL;
-    }
+        try {
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+            this.className = "com.mysql.jdbc.Driver";
+            this.databaseURL = "jdbc:mysql://localhost/uiuap"; //127.5.20.130:3306
+            this.username = "root"; //root
+            this.password = "studevsdb"; //studevsdb
+            
+//            this.setConnection();
+        } catch (Exception e) {
+        }
     }
 
     private void setConnection() {

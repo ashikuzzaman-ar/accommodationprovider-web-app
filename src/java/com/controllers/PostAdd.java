@@ -128,7 +128,7 @@ public class PostAdd {
             } else {
 
                 this.sql = "UPDATE advertisement_info SET "
-                        + "availability = '" + "Y" + "' "
+                        + "availability = '" + availability + "' "
                         + "WHERE post_id = " + Integer.parseInt(postID);
 
                 this.connectToDatabase.getResult(this.sql);

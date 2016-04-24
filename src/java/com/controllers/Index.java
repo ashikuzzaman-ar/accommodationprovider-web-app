@@ -88,7 +88,8 @@ public class Index {
                     + "' AND advertisement_info.u_id ="
                     + "user_info.u_id AND user_info.gender='"
                     + this.userInformation.getGender()
-                    + "') ORDER BY post_id DESC limit "
+                    + "' AND advertisement_info.availability = 'Y') "
+                    + "ORDER BY post_id DESC limit "
                     + startLimit + ", " + endLimit;
 
             return this.connectToDatabase.getResult(this.sql);

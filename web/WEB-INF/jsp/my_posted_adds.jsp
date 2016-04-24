@@ -49,18 +49,22 @@
                                     Availability: 
                                     <%
                                         String postAvailability = resultSet.getString("availability");
+                                        String yID = "yID" + resultSet.getString("post_id");
+                                        String nID = "nID" + resultSet.getString("post_id");
+                                        String availabilityName = "availability" + resultSet.getString("post_id");
+
                                         if (postAvailability.equals("Y")) {
                                     %>
 
-                                    <label>Yes </label> <input id="yAvailability" type="radio" name="availability" value="Y" checked="checked" />
-                                    <label>No </label> <input id="nAvailability" type="radio" name="availability" value="N" disabled="true" />
+                                    <label>Yes </label> <input id="<%= yID%>" type="radio" name="availability" value="Y" checked="checked" />
+                                    <label>No </label> <input id="<%= nID%>" type="radio" name="availability" value="N" disabled="true" />
 
-                                    <% } else { %>
+                                    <% } else {%>
 
-                                    <label>Yes </label> <input id="yAvailability" type="radio" name="availability" value="Y" disabled="true" />
-                                    <label>No </label> <input id="nAvailability" type="radio" name="availability" value="N" checked="checked" />
+                                    <label>Yes </label> <input id="<%= yID%>" type="radio" name="availability" value="Y" disabled="true" />
+                                    <label>No </label> <input id="<%= nID%>" type="radio" name="availability" value="N" checked="checked" />
 
-                                    <% } %>
+                                    <% }%>
                                 </td>
                             </tr>
                             </tbody>
@@ -69,8 +73,8 @@
                         <div>
                             <a class="btn btn-success left" href="index">Back to Home</a>
                             <button type="button" class="btn btn-info" onclick="
-                                    setEditableTextField('yAvailability');
-                                    setEditableTextField('nAvailability');">
+                                    setEditableTextField('<%= yID%>');
+                                    setEditableTextField('<%= nID%>');">
 
                                 Edit this post
                             </button>
