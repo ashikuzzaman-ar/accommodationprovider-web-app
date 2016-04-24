@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PostAdd {
@@ -98,7 +99,46 @@ public class PostAdd {
                         + "' ORDER BY post_id DESC";
 
                 this.resultSet = this.connectToDatabase.getResult(sql);
-                model.addAttribute("resultSet", this.resultSet);
+                this.model.addAttribute("resultSet", this.resultSet);
+
+                return "my_posted_adds";
+            }
+        } catch (Exception e) {
+
+            model.addAttribute("errorMessage", e.toString());
+            return "index";
+        }
+    }
+
+    @RequestMapping(value = "update_add", method = RequestMethod.POST)
+    protected String doPost1(Model model,
+            HttpServletRequest request,
+            @RequestParam(value = "availability", defaultValue = "Y") String availability,
+            @RequestParam(value = "postID") String postID) {
+
+        this.model = model;
+        this.request = request;
+        this.userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+
+        try {
+
+            if (this.userInformation == null) {
+
+                return "index";
+            } else {
+
+                this.sql = "UPDATE advertisement_info SET "
+                        + "availability = '" + "Y" + "' "
+                        + "WHERE post_id = " + Integer.parseInt(postID);
+
+                this.connectToDatabase.getResult(this.sql);
+
+                this.sql = "SELECT * FROM advertisement_info WHERE u_id='"
+                        + this.userInformation.getU_id()
+                        + "' ORDER BY post_id DESC";
+
+                this.resultSet = this.connectToDatabase.getResult(sql);
+                this.model.addAttribute("resultSet", this.resultSet);
 
                 return "my_posted_adds";
             }
