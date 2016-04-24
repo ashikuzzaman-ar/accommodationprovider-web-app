@@ -15,7 +15,7 @@
             </div>
             <% while (resultSet != null && resultSet.next()) {%>
             <div class="col-lg-12">
-                <div class="box">
+                <div class="box hoverable">
                     <form class="form" action="update_add" method="POST">
                         <table class="table table-responsive table-hover">
                             <thead>
@@ -71,14 +71,14 @@
                         </table>
                         <br/>
                         <div>
-                            <a class="btn btn-success left" href="index">Back to Home</a>
-                            <button type="button" class="btn btn-info" onclick="
+                            <!--<a class="btn btn-success left" href="index">Back to Home</a>-->
+                            <button type="button" class="btn btn-info hoverable" onclick="
                                     setEditableTextField('<%= yID%>');
                                     setEditableTextField('<%= nID%>');">
 
                                 Edit this post
                             </button>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary hoverable">
                                 Save Change
                             </button>
                         </div>

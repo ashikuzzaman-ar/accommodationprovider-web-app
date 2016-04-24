@@ -66,7 +66,7 @@ public class Index {
                 this.model.addAttribute("errorMessage", "");
 
                 this.model.addAttribute("resultSet", this.getResultSet(0, 6));
-
+                
                 return "index";
             } else {
 
@@ -108,7 +108,9 @@ public class Index {
         try {
 
             this.request.getSession().setAttribute("userInformation", null);
-
+            this.userInformation = null;
+            this.connectToDatabase.closeConnection();
+            
             return "index";
         } catch (Exception e) {
 
@@ -127,6 +129,24 @@ public class Index {
         try {
 
             return "index";
+        } catch (Exception e) {
+
+            return "index";
+        }
+    }
+    
+    
+    
+    
+    @RequestMapping(value = "about_us", method = RequestMethod.GET)
+    protected String doGet3(Model model, HttpServletRequest request) {
+
+        this.model = model;
+        this.request = request;
+
+        try {
+
+            return "about_us";
         } catch (Exception e) {
 
             return "index";

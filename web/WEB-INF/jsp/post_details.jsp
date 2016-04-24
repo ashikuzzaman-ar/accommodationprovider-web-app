@@ -19,38 +19,38 @@
                                 </tr>
                             </thead>
                             <tbody class="text-left h2">
-                                <tr>
+                                <tr class="hoverable">
                                     <td>Poster ID: <%=resultSet.getString("u_id")%></td>
                             <input type="hidden" name="receiverID" value="<%=resultSet.getString("u_id")%>" />
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Post ID: <%=resultSet.getString("post_id")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Post Date: <%=resultSet.getString("post_date")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Type: <%=resultSet.getString("type")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Quantity: <%=resultSet.getString("quantity")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Deadline: <%=resultSet.getString("deadline")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Availability: <%=resultSet.getString("availability")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>House Rent: <%=resultSet.getString("house_rent")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Utility Cost: <%=resultSet.getString("utility_cost")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Address: <%=resultSet.getString("address")%></td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td>Extra Facility: <%=resultSet.getString("provided_fasility")%></td>
                             </tr>
                             </tbody>
@@ -58,11 +58,11 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12 text-center">
-                                    <textarea class="" name="message" placeholder="Write your message here" rows="6" cols="50"></textarea>
+                                    <textarea class="hoverable" name="message" placeholder="Write your message here" rows="6" cols="50"></textarea>
                                     <br/>
                                     <br/>
                                     <div>
-                                        <button class="btn btn-primary btn-lg" type="submit" name="button">
+                                        <button class="btn btn-primary btn-lg hoverable" type="submit" name="button">
                                             <span class="glyphicon glyphicon-send" aria-hidden="true">
                                                 Send Message
                                             </span>

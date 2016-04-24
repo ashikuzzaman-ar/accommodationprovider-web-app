@@ -10,7 +10,7 @@
        
        
     
-    <bean id="connectToDatabase" class="com.util.ConnectToDatabase" init-method="initMethod" scope="singleton">
+    <bean id="connectToDatabase" class="com.util.ConnectToDatabase" init-method="initMethod" destroy-method="closeConnection" >
     </bean>
     
     <bean id="userInformation" class="com.models.UserInformation" scope="prototype">
@@ -22,7 +22,7 @@
         <property name="u_id" value="" />
     </bean>
 
-    <bean id="advertisementModel" class="com.models.AdvertisementModel" scope="singleton">
+    <bean id="advertisementModel" class="com.models.AdvertisementModel">
     </bean>
 
 

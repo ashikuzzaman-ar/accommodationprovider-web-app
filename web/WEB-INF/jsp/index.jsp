@@ -72,7 +72,7 @@
             </div>
             <% while (resultSet != null && resultSet.next()) {%>
             <div class="col-lg-12">
-                <div class="box">
+                <div class="box hoverable">
                     <table>
                         <thead>
                             <tr>

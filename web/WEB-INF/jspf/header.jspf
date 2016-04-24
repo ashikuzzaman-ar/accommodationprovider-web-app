@@ -59,7 +59,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-nb-1">
                     <ul class="nav navbar-nav">
-                        <li title="Home" class="">
+                        <li title="Home" class="hoverable">
                             <a href="index">
                                 <span class="glyphicon glyphicon-home" aria-hidden="true">
                                     <!--Home-->
@@ -69,7 +69,7 @@
                         <% if (this.userInformation == null) { %>
 
 
-                        <li title="Login" class="dropdown">
+                        <li title="Login" class="dropdown hoverable">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-log-in" aria-hidden="true">
                                     <!--Login-->
@@ -82,33 +82,34 @@
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <input name="username" type="text" class="form-control" placeholder="Username" value="" />
+                                                    <input name="username" type="text" class="form-control hoverable" placeholder="Username" value="" />
                                                 </td>
                                                 <td>
-                                                    <input name="password" type="password" class="form-control" placeholder="Password" value="" />
+                                                    <input name="password" type="password" class="form-control hoverable" placeholder="Password" value="" />
                                                 </td>
                                             </tr>
                                         </table>
                                     </div>
-                                    <input type="submit" class="btn btn-primary" value="Login" name="button" />
+                                    <br/>
+                                    <input type="submit" class="btn btn-primary hoverable" value="Login" name="button" />
                                 </form>
                             </div>
                         </li>
-                        <li title="Sign Up" class="">
+                        <li title="Sign Up" class="hoverable">
                             <a href="signup">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true">
                                     <!--Sign Up-->
                                 </span>
                             </a>
                         </li>
-                        <li title="About Us" class="">
-                            <a href="#">
+                        <li title="About Us" class="hoverable">
+                            <a href="about_us">
                                 <span class="glyphicon glyphicon-modal-window" aria-hidden="true">
                                     <!--About Us-->
                                 </span>
                             </a>
                         </li>
-                        <li title="Contact" class="">
+                        <li title="Contact" class="hoverable">
                             <a href="#">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true">
                                     <!--Contact-->
@@ -118,14 +119,14 @@
                         <% } else {%>
 
 
-                        <li title="<%= this.userInformation.getName()%>" class="">
+                        <li title="<%= this.userInformation.getName()%>" class="hoverable">
                             <a href="profile">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true">
                                     <%= this.userInformation.getName().split(" ")[0]%>
                                 </span>
                             </a>
                         </li>
-                        <li title="Message Box" class="dropdown">
+                        <li title="Message Box" class="dropdown hoverable">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true">
                                 </span>
@@ -139,7 +140,7 @@
 
                                         while (this.messageResultSet.next()) {%>
 
-                                <li class="text-capitalize">
+                                <li class="text-capitalize hoverable">
                                     <a style="color: green;" href="">
                                         New Message from <%= this.messageResultSet.getString("name")%>
                                     </a>
@@ -153,7 +154,7 @@
                                 <% } %>
 
                                 <hr/>
-                                <li class="text-capitalize text-center">
+                                <li class="text-capitalize text-center hoverable">
                                     <a href="messages">
                                         <span class="glyphicon glyphicon-sort" aria-hidden="true">
                                             All Messages
@@ -163,7 +164,7 @@
 
                             </ul>
                         </li>
-                        <li title="Sear any places here" class="">
+                        <li title="Sear any places here" class="hoverable">
                             <!--Index.java controller-->
                             <form class="navbar-form navbar-left" action="search" method="POST">
                                 <div class="form-group form-group-lg search-box-position">
@@ -174,7 +175,7 @@
                                 </div>
                             </form>
                         </li>
-                        <li title="Option Menu" class="dropdown">
+                        <li title="Option Menu" class="dropdown hoverable">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true">
                                     <!--Options-->
@@ -182,26 +183,40 @@
                                 <!--<span class="caret"></span>-->
                             </a>
                             <ul class="dropdown-menu text-left text-capitalize">
-                                <li>
+                                <li title="About Us" class="hoverable">
+                                    <a href="about_us">
+                                        <span class="glyphicon glyphicon-modal-window" aria-hidden="true">
+                                            About Us
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="hoverable">
                                     <a href="post_add">
                                         Post an add
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hoverable">
                                     <a href="my_posted_adds">
                                         My Posts
                                     </a>
                                 </li>
-                                <li>
+                                <li class="hoverable">
                                     <!--Profile.java Controller-->
                                     <a href="change_password">
                                         Change Password
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="hoverable">
                                     <a href="logout">
                                         <span class="glyphicon glyphicon-log-out" aria-hidden="true">
                                             Log Out
+                                        </span>
+                                    </a>
+                                </li>
+                                <li title="Contact" class="hoverable">
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true">
+                                            Contact
                                         </span>
                                     </a>
                                 </li>

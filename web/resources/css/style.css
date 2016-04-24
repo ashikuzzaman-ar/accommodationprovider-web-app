@@ -40,19 +40,25 @@
 html, body {
     height: 100%;
     margin: 0;
-    background-image: url("../media/backgrounds/b6.jpg");
-    
     /*background-repeat: no-repeat;*/
+}
+
+nav{
+    
+/*    background-color: #8b1014;
+    opacity: 0.9;
+    height: 10px;*/
+    
 }
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg.jpg') no-repeat center center fixed;
+    background: url(../media/backgrounds/b6.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    padding-top: 7%;
+    padding-top: 10%;
 }
 
 h1,
@@ -231,4 +237,264 @@ footer p {
         display: table;
         clear: both;
     }
+}
+
+/*Hover Effect 
+Start Here*/
+
+.hoverable:hover {
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.view {
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+}
+
+.view .mask,
+.view .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.view img {
+  display: block;
+  position: relative;
+}
+
+.overlay:hover .mask {
+  opacity: 1;
+}
+
+.overlay img {
+  transition: all 0.2s linear;
+}
+
+.overlay .mask {
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+
+.hm-blue-light .mask {
+  background-color: rgba(3, 169, 244, 0.3);
+}
+
+.hm-red-light .mask {
+  background-color: rgba(244, 67, 54, 0.3);
+}
+
+.hm-pink-light .mask {
+  background-color: rgba(233, 30, 99, 0.3);
+}
+
+.hm-purple-light .mask {
+  background-color: rgba(156, 39, 176, 0.3);
+}
+
+.hm-indigo-light .mask {
+  background-color: rgba(63, 81, 181, 0.3);
+}
+
+.hm-cyan-light .mask {
+  background-color: rgba(0, 188, 212, 0.3);
+}
+
+.hm-teal-light .mask {
+  background-color: rgba(0, 150, 136, 0.3);
+}
+
+.hm-green-light .mask {
+  background-color: rgba(76, 175, 80, 0.3);
+}
+
+.hm-lime-light .mask {
+  background-color: rgba(205, 220, 57, 0.3);
+}
+
+.hm-yellow-light .mask {
+  background-color: rgba(255, 235, 59, 0.3);
+}
+
+.hm-orange-light .mask {
+  background-color: rgba(255, 152, 0, 0.3);
+}
+
+.hm-brown-light .mask {
+  background-color: rgba(121, 85, 72, 0.3);
+}
+
+.hm-grey-light .mask {
+  background-color: rgba(158, 158, 158, 0.3);
+}
+
+.hm-bluegrey-light .mask {
+  background-color: rgba(96, 125, 139, 0.3);
+}
+
+.hm-black-light .mask {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hm-stylish-light .mask {
+  background-color: rgba(62, 69, 81, 0.3);
+}
+
+.hm-white-light .mask {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.hm-blue-strong .mask {
+  background-color: rgba(3, 169, 244, 0.7);
+}
+
+.hm-red-strong .mask {
+  background-color: rgba(244, 67, 54, 0.7);
+}
+
+.hm-pink-strong .mask {
+  background-color: rgba(233, 30, 99, 0.7);
+}
+
+.hm-purple-strong .mask {
+  background-color: rgba(156, 39, 176, 0.7);
+}
+
+.hm-indigo-strong .mask {
+  background-color: rgba(63, 81, 181, 0.7);
+}
+
+.hm-cyan-strong .mask {
+  background-color: rgba(0, 188, 212, 0.7);
+}
+
+.hm-teal-strong .mask {
+  background-color: rgba(0, 150, 136, 0.7);
+}
+
+.hm-green-strong .mask {
+  background-color: rgba(76, 175, 80, 0.7);
+}
+
+.hm-lime-strong .mask {
+  background-color: rgba(205, 220, 57, 0.7);
+}
+
+.hm-yellow-strong .mask {
+  background-color: rgba(255, 235, 59, 0.7);
+}
+
+.hm-orange-strong .mask {
+  background-color: rgba(255, 152, 0, 0.7);
+}
+
+.hm-brown-strong .mask {
+  background-color: rgba(121, 85, 72, 0.7);
+}
+
+.hm-grey-strong .mask {
+  background-color: rgba(158, 158, 158, 0.7);
+}
+
+.hm-bluegrey-strong .mask {
+  background-color: rgba(96, 125, 139, 0.7);
+}
+
+.hm-black-strong .mask {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.hm-stylish-strong .mask {
+  background-color: rgba(62, 69, 81, 0.7);
+}
+
+.hm-white-strong .mask {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.hm-blue-slight .mask {
+  background-color: rgba(3, 169, 244, 0.1);
+}
+
+.hm-red-slight .mask {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.hm-pink-slight .mask {
+  background-color: rgba(233, 30, 99, 0.1);
+}
+
+.hm-purple-slight .mask {
+  background-color: rgba(156, 39, 176, 0.1);
+}
+
+.hm-indigo-slight .mask {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+
+.hm-cyan-slight .mask {
+  background-color: rgba(0, 188, 212, 0.1);
+}
+
+.hm-teal-slight .mask {
+  background-color: rgba(0, 150, 136, 0.1);
+}
+
+.hm-green-slight .mask {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.hm-lime-slight .mask {
+  background-color: rgba(205, 220, 57, 0.1);
+}
+
+.hm-yellow-slight .mask {
+  background-color: rgba(255, 235, 59, 0.1);
+}
+
+.hm-orange-slight .mask {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+
+.hm-brown-slight .mask {
+  background-color: rgba(121, 85, 72, 0.1);
+}
+
+.hm-grey-slight .mask {
+  background-color: rgba(158, 158, 158, 0.1);
+}
+
+.hm-bluegrey-slight .mask {
+  background-color: rgba(96, 125, 139, 0.1);
+}
+
+.hm-black-slight .mask {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hm-stylish-slight .mask {
+  background-color: rgba(62, 69, 81, 0.1);
+}
+
+.hm-white-slight .mask {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hm-zoom img {
+  transition: all 0.2s linear;
+}
+
+.hm-zoom:hover img {
+  transform: scale(1.1);
+}
+
+.hm-zoom:hover .mask {
+  opacity: 1;
 }

@@ -13,7 +13,7 @@
                     </div>
                     <!--Signup.java Controller-->
                     <form class="form" action="update_profile" method="POST">
-                        <table class="table-striped table-hover font-medium table-responsive">
+                        <table class="table-striped table-hover font-medium table-responsive hoverable">
                             <tr class="">
                                 <td class="text-left hidden-xs">User ID: </td>
                                 <td class="text-center">
@@ -21,11 +21,11 @@
                                 </td>
                                 <td class="text-left">
                                     <button class="btn btn-info" type="button" disabled="true">
-                                        Edit ID
+                                        Not Editable!
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td class="text-left hidden-xs">Username: </td>
                                 <td class="text-center">
                                     <input class="form-control" type="text" id="name" name="name" value="<%=this.userInformation.getName()%>" disabled="true" />
@@ -36,7 +36,7 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td class="text-left hidden-xs">Email: </td>
                                 <td class="text-center">
                                     <input class="form-control" type="text" id="email" name="email" value="<%=this.userInformation.getEmail()%>" disabled="true" />
@@ -47,7 +47,7 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="hoverable">
                                 <td class="text-left hidden-xs">Contact Number: </td>
                                 <td class="text-center">
                                     <input class="form-control" type="text" id="contact_num" name="contact_num" value="<%=this.userInformation.getContact_num()%>" disabled="true" />
@@ -65,7 +65,7 @@
                                 </td>
                                 <td class="text-left">
                                     <button class="btn btn-info" type="button" disabled="true">
-                                        Please don't edit this!
+                                        Not Editable!
                                     </button>
                                 </td>
                             </tr>
@@ -73,8 +73,8 @@
                         <hr/>
                         <br/>
                         <div>
-                            <a class="btn btn-primary left" href="index">Back to Home</a>
-                            <button class="btn btn-success right" type="submit" onclick="
+                            <!--<a class="btn btn-primary left" href="index">Back to Home</a>-->
+                            <button class="btn btn-success right hoverable" type="submit" onclick="
                                     setEditableTextField('u_id');
                                     setEditableTextField('name');
                                     setEditableTextField('email');

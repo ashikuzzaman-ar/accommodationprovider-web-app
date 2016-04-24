@@ -101,7 +101,7 @@ public class Signup {
                 this.request.getSession().setAttribute("userInformation", userInformation);
                 presentUserInformation.setNull();
                 
-                this.model.addAttribute("errorMessage", "Congratulation! Now Login please.");
+                this.model.addAttribute("errorMessage", "Successfully updated your profile!");
             } else {
 
                 this.model.addAttribute("errorMessage", userInformationResult.getAllErrors().toString());

@@ -10,15 +10,15 @@
                     </div>
                     <!--Profile.java Controller-->
                     <form action="change_password" method="POST" class="form">
-                        <input onkeyup="checkNull('oldPassword')" id="oldPassword" required="true" class="form-control" type="password" name="oldPassword" placeholder="Old Password"/>
-                        <input onkeyup="checkNull('newPassword')" id="newPassword" required="true" class="form-control" type="password" name="newPassword" placeholder="New Password"/>
-                        <input onkeyup="passwordMatching('repeatNewPassword', 'newPassword')" id="repeatNewPassword" required="true" class="form-control" type="password" name="repeatNewPassword" placeholder="Repeat New Password"/>
+                        <input onkeyup="checkNull('oldPassword')" id="oldPassword" required="true" class="form-control hoverable" type="password" name="oldPassword" placeholder="Old Password"/>
+                        <input onkeyup="checkNull('newPassword')" id="newPassword" required="true" class="form-control hoverable" type="password" name="newPassword" placeholder="New Password"/>
+                        <input onkeyup="passwordMatching('repeatNewPassword', 'newPassword')" id="repeatNewPassword" required="true" class="form-control hoverable" type="password" name="repeatNewPassword" placeholder="Repeat New Password"/>
                         <br/>
                         <br/>
-                        <button class="btn btn-info left" type="reset" name="">
+                        <button class="btn btn-info left hoverable" type="reset" name="">
                             Reset Filds
                         </button>
-                        <button class="btn btn-primary right" type="submit" name="changePassword">
+                        <button class="btn btn-primary right hoverable" type="submit" name="changePassword">
                             Change Password
                         </button>
                     </form>

@@ -53,7 +53,7 @@
                                         <textarea class="" name="message" placeholder="Write your message here" rows="4" cols="50"></textarea>
                                         <input type="hidden" name="receiverID" value="<%=inboxMessages.getString("u_id")%>" />
                                         <div>
-                                            <button class="btn btn-primary" type="submit" name="button">
+                                            <button class="btn btn-primary hoverable" type="submit" name="button">
                                                 <span class="glyphicon glyphicon-send" aria-hidden="true">
                                                     Reply
                                                 </span>
@@ -116,7 +116,7 @@
                                         <textarea class="" name="message" placeholder="Write your message here" rows="4" cols="50"></textarea>
                                         <input type="hidden" name="receiverID" value="<%=outboxMessages.getString("u_id")%>" />
                                         <div>
-                                            <button class="btn btn-primary" type="submit" name="button">
+                                            <button class="btn btn-primary hoverable" type="submit" name="button">
                                                 <span class="glyphicon glyphicon-send" aria-hidden="true">
                                                     Send Again
                                                 </span>
