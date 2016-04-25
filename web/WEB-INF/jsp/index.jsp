@@ -208,11 +208,11 @@
         </div>
     </div>
     <div class="row">
-        <h2 class="intro-text text-center">
-            <strong class="brand-name">Photo Gallery</strong>
-        </h2>
-        <hr/>
         <div class="box">
+            <h2 class="intro-text text-center">
+                <strong class="brand-name">Photo Gallery</strong>
+            </h2>
+            <hr/>
             <div class="col-lg-12 hoverable">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
@@ -232,6 +232,51 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
                         <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p6.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p7.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p8.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p9.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p10.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p11.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p12.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p13.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p14.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p15.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p16.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p17.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p18.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p19.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p20.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p21.jpg"/>" alt="">
                     </div>
                 </div>
             </div>
