@@ -135,19 +135,15 @@
                             <hr/>
                             Front-End Experience: html,css,javascript, etc.
                             <br/>
-                            Front-End Framework Experience: bootstrap,jquery,angular.js, etc.
+                            Front-End Framework Experience: bootstrap,jquery etc.
                             <hr/>
-                            Back-End Experience: C,C++,Java,Python,php, etc. 
-                            <br/>
-                            Back-End Framework Experience: Spring Framework, Spring MVC Framework, etc. 
+                            Back-End Experience: C,C++,Java etc.  
                             <hr/>
-                            Database Experience: MySQL,OracleSQL,SQLite, etc. 
-                            <br/>
-                            Persistence Framework Experience: Hibernate,Eclipse-Link, etc. 
+                            Database Experience: MySQL,SQLite, etc.  
                             <hr/>
                             Other Experience: MatLab, Shell Script, etc. 
                             <hr/>
-                            Email : <a href="#">Your Main Here</a>
+                            Email : <a href="#">fahim.fs993@gmail.com</a>
                             <hr/>
                         </strong>
                     </p>
