@@ -183,6 +183,58 @@
                     </b>
                 </p>
             </div>
+            <div class="col-lg-12 hoverable">
+                <h2 class="intro-text text-center">
+                    <strong class="brand-name">The working department of UIUSSC</strong>
+                </h2>
+                <hr/>
+                <img width="50%" height="50%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p5.jpg"/>" alt="">
+                <hr class="visible-xs"/>
+                <p>
+                    <b>
+                        <ul class="h2">
+                            <li class="hoverable">Organizing</li>
+                            <li class="hoverable">Public relation</li>
+                            <li class="hoverable">Online promotion for our events</li>
+                            <li class="hoverable">Marketing</li>
+                            <li class="hoverable">Graphics designing </li>
+                            <li class="hoverable">H.R department</li>
+                            <li class="hoverable">Research & Development</li>
+                        </ul>
+                    </b>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="intro-text text-center">
+            <strong class="brand-name">Photo Gallery</strong>
+        </h2>
+        <hr/>
+        <div class="box">
+            <div class="col-lg-12 hoverable">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p1.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p2.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p3.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p4.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p5.jpg"/>" alt="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hoverable">
+                        <img width="100%" height="100%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/photos/p6.jpg"/>" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
