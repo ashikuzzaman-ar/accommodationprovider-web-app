@@ -131,19 +131,17 @@
                     <hr class="visible-xs">
                     <p>
                         <strong class="hoverable">
-                            Student & Full Stack Java Developer
+                            Student & Manager GBG Sonargaon
                             <hr/>
-                            Front-End Experience: html,css,javascript, etc.
-                            <br/>
-                            Front-End Framework Experience: bootstrap,jquery etc.
+                            Front-End Experience: html,css, etc.
                             <hr/>
-                            Back-End Experience: C,C++,Java etc.  
+                            Back-End Experience: C,C++,php, etc. 
                             <hr/>
-                            Database Experience: MySQL,SQLite, etc.  
+                            Database Experience: OracleSQL, etc. 
                             <hr/>
                             Other Experience: MatLab, Shell Script, etc. 
                             <hr/>
-                            Email : <a href="#">fahim.fs993@gmail.com</a>
+                            Email : <a href="#">rafiulraju@gmail.com</a>
                             <hr/>
                         </strong>
                     </p>
