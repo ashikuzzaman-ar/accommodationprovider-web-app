@@ -37,7 +37,7 @@
         <div class="row">
             <div class="box hoverable">
                 <div class="col-lg-12 text-center">
-                    <h1 class="brand-name">Post Position</h1>
+                    <h1 class="brand-name">Head Developer</h1>
                     <hr/>
                     <h2 class="intro-text text-center">
                         <strong class="">Md. Ashikuzzaman (Ashik)</strong>
@@ -46,24 +46,24 @@
                     <img width="50%" height="50%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/dev-team/dv1.jpg"/>" alt="">
                     <hr class="visible-xs">
                     <p>
-                        <strong class="hoverable">
-                            Student & Full Stack Java Developer
+                        <strong class="">
+                            <span class="hoverable">Student & Full Stack Java Developer</span>
                             <hr/>
-                            Front-End Experience: html,css,javascript, etc.
+                            <span class="hoverable">Front-End Experience: html,css,javascript.</span>
                             <br/>
-                            Front-End Framework Experience: bootstrap,jquery,angular.js, etc.
+                            <span class="hoverable">Front-End Framework Experience: bootstrap,jquery,angular.js.</span>
                             <hr/>
-                            Back-End Experience: C,C++,Java,Python,php, etc. 
+                            <span class="hoverable">Back-End Experience: C,C++,Java,Python,php.</span> 
                             <br/>
-                            Back-End Framework Experience: Spring Framework, Spring MVC Framework, etc. 
+                            <span class="hoverable">Back-End Framework Experience: Spring Framework, Spring MVC Framework.</span> 
                             <hr/>
-                            Database Experience: MySQL,OracleSQL,SQLite, etc. 
+                            <span class="hoverable">Database Experience: MySQL,OracleSQL,SQLite.</span>
                             <br/>
-                            Persistence Framework Experience: Hibernate,Eclipse-Link, etc. 
+                            <span class="hoverable">Persistence Framework Experience: Hibernate,Eclipse-Link.</span> 
                             <hr/>
-                            Other Experience: MatLab, Shell Script, etc. 
+                            <span class="hoverable">Other Experience: MatLab, Shell Script.</span> 
                             <hr/>
-                            Email : <a href="#">ashikuzzaman.ar@gmail.com</a>
+                            <span class="hoverable">Email : <a href="#">ashikuzzaman.ar@gmail.com</a></span>
                             <hr/>
                         </strong>
                     </p>
@@ -80,7 +80,7 @@
         <div class="row">
             <div class="box hoverable">
                 <div class="col-lg-12 text-center">
-                    <h1 class="brand-name">Post Position</h1>
+                    <h1 class="brand-name">Assistant Developer</h1>
                     <hr/>
                     <h2 class="intro-text text-center">
                         <strong class="">Sajid Ahmed</strong>
@@ -89,24 +89,24 @@
                     <img width="50%" height="50%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/dev-team/dv2.jpg"/>" alt="">
                     <hr class="visible-xs">
                     <p>
-                        <strong class="hoverable">
-                            Student & Full Stack Java Developer
+                        <strong class="">
+                            <span class="hoverable">Student & Full Stack Java Developer</span>
                             <hr/>
-                            Front-End Experience: html,css,javascript, etc.
+                            <span class="hoverable">Front-End Experience: html,css,javascript.</span>
                             <br/>
-                            Front-End Framework Experience: bootstrap,jquery,angular.js, etc.
+                            <span class="hoverable">Front-End Framework Experience: bootstrap,jquery.</span>
                             <hr/>
-                            Back-End Experience: C,C++,Java,Python,php, etc. 
+                            <span class="hoverable">Back-End Experience: C,Java.</span>
                             <br/>
-                            Back-End Framework Experience: Spring Framework, Spring MVC Framework, etc. 
+                            <span class="hoverable">Back-End Framework Experience: Spring Framework, Spring MVC Framework.</span>
                             <hr/>
-                            Database Experience: MySQL,OracleSQL,SQLite, etc. 
+                            <span class="hoverable">Database Experience: MySQL,SQLite.</span>
                             <br/>
-                            Persistence Framework Experience: Hibernate,Eclipse-Link, etc. 
+                            <span class="hoverable">Persistence Framework Experience: Hibernate.</span>
                             <hr/>
-                            Other Experience: MatLab, Shell Script, etc. 
+                            <span class="hoverable">Other Experience: MatLab, Shell Script.</span>
                             <hr/>
-                            Email : <a href="#">Your Main Here</a>
+                            <span class="hoverable">Email : <a href="#">sazid860@gmail.com</a></span>
                             <hr/>
                         </strong>
                     </p>
@@ -121,7 +121,7 @@
         <div class="row">
             <div class="box hoverable">
                 <div class="col-lg-12 text-center">
-                    <h1 class="brand-name">Post Position</h1>
+                    <h1 class="brand-name">Assistant Developer</h1>
                     <hr/>
                     <h2 class="intro-text text-center">
                         <strong class="">Fahim Shahriar</strong>
@@ -130,18 +130,20 @@
                     <img width="50%" height="50%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/dev-team/dv3.jpg"/>" alt="">
                     <hr class="visible-xs">
                     <p>
-                        <strong class="hoverable">
-                            Student & Manager GBG Sonargaon
+                        <strong class="">
+                            <span class="hoverable">Student & Full Stack Java Developer</span>
                             <hr/>
-                            Front-End Experience: html,css, etc.
+                            <span class="hoverable">Front-End Experience: html,css,javascript.</span>
+                            <br/>
+                            <span class="hoverable">Front-End Framework Experience: bootstrap,jquery.</span>
                             <hr/>
-                            Back-End Experience: C,C++,php, etc. 
+                            <span class="hoverable">Back-End Experience: C,C++,Java.</span>
                             <hr/>
-                            Database Experience: OracleSQL, etc. 
+                            <span class="hoverable">Database Experience: MySQL,SQLite.</span>
                             <hr/>
-                            Other Experience: MatLab, Shell Script, etc. 
+                            <span class="hoverable">Other Experience: MatLab, Shell Script.</span>
                             <hr/>
-                            Email : <a href="#">rafiulraju@gmail.com</a>
+                            <span class="hoverable">Email : <a href="#">fahim.fs993@gmail.com</a></span>
                             <hr/>
                         </strong>
                     </p>
@@ -156,7 +158,7 @@
         <div class="row">
             <div class="box hoverable">
                 <div class="col-lg-12 text-center">
-                    <h1 class="brand-name">Post Position</h1>
+                    <h1 class="brand-name">Management & Linkup</h1>
                     <hr/>
                     <h2 class="intro-text text-center">
                         <strong class="">Sayed RaFiul Islam</strong>
@@ -165,24 +167,18 @@
                     <img width="50%" height="50%" class="img-responsive img-border img-left hoverable" src="<c:url value="/resources/media/dev-team/dv4.jpg"/>" alt="">
                     <hr class="visible-xs">
                     <p>
-                        <strong class="hoverable">
-                            Student & Full Stack Java Developer
+                        <strong class="">
+                            <span class="hoverable">Student & Manager GBG Sonargaon</span>
                             <hr/>
-                            Front-End Experience: html,css,javascript, etc.
-                            <br/>
-                            Front-End Framework Experience: bootstrap,jquery,angular.js, etc.
+                            <span class="hoverable">Front-End Experience: html,css.</span>
                             <hr/>
-                            Back-End Experience: C,C++,Java,Python,php, etc. 
-                            <br/>
-                            Back-End Framework Experience: Spring Framework, Spring MVC Framework, etc. 
+                            <span class="hoverable">Back-End Experience: C,C++,php.</span>
                             <hr/>
-                            Database Experience: MySQL,OracleSQL,SQLite, etc. 
-                            <br/>
-                            Persistence Framework Experience: Hibernate,Eclipse-Link, etc. 
+                            <span class="hoverable">Database Experience: OracleSQL.</span> 
                             <hr/>
-                            Other Experience: MatLab, Shell Script, etc. 
+                            <span class="hoverable">Other Experience: MatLab, Shell Script.</span> 
                             <hr/>
-                            Email : <a href="#">Your Main Here</a>
+                            <span class="hoverable">Email : <a href="#">rafiulraju@gmail.com</a></span>
                             <hr/>
                         </strong>
                     </p>
